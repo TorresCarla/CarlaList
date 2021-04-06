@@ -12,7 +12,7 @@ class PageTest(unittest.TestCase):
    def test_browser_title(self):
       self.browser.get('http://localhost:8000')
       self.assertIn('Carla List', self.browser.title)
-      self.fail('Finish the test NOW!!!????')
+      self.fail('Finish the test NOW!')
       
       
 if __name__ == '__main__':
