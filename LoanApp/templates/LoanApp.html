@@ -1,0 +1,66 @@
+<html>
+	<head>
+		<title>Loan Application</title>
+<!-- <script>
+	var cnt = 3;
+	function addMoreInfo() {
+		var pers = document.getElementById('Name'),
+		clone = pers.cloneNode(true);
+		clone.id = "Name"+cnt; clone.name = "Name"+cnt;
+		document.body.appendChild(clone);
+		document.body.appendChild(document.createTextNode("  ."));
+		var pers = document.getElementById('EmailAddress'),
+		clone = pers.cloneNode(true);
+		clone.id = "EmailAddress"+cnt; clone.name = "EmailAddress"+cnt;
+		document.body.appendChild(clone);
+		document.body.appendChild(document.createElement("br"));
+		cnt += 1;
+	}
+</script> -->
+	</head>
+	<body>
+		<h1 style="color: blue; font-size: 35px">
+			Loan Application Form
+		</h1>
+		<form id="entryForm">
+		<label for ="Name1"> First Name</label>
+		<input type="text" id="Name1" name="Name1" placeholder="First Name"/>
+		<label for ="Name2"> Middle Name</label>
+		<input type="text" id="Name2" name="Name2" placeholder="Middle Name"/>
+		<label for ="Name3"> Last Name</label>
+		<input type="text" id="Name3" name="Name3" placeholder="Last Name"/>
+		&nbsp<br></br>
+		<label for ="Email"> Email Address</label>
+		<input type="text" id="Email" name="Email" placeholder="EmailAddress" />
+		<label for ="Address"> Residence Address</label>
+		<input bold type="text" id="Address" name="Address" placeholder="ResidenceAddress"/>
+		<label for ="Code"> Zip Code</label>
+		<input bold type="text" id="Code" name="Code" placeholder="ZipCode"/>&nbsp<br></br>
+		<!--<input type="button" style="color:red" value="Confirm" backgroundcolor="grey" /><br>-->
+		<label for ="Date of Birth"> DateOfBirth</label>
+		<input type="text" id="DateOfBirth" name="DateOfBirth" placeholder="M/D/Y" size=33 />&nbsp<br></br>
+		<label for ="Status"> Marital Status</label>
+		<input bold type="text" id="Status" name="Status" placeholder="MaritalStatus"/>
+		<label for ="Citizenship"> Citizenship</label>
+		<input bold type="text" id="Citizenship" name="Citizenship" placeholder="Citizensip"/>&nbsp<br></br>
+		<label for ="CPNo"> Cellphone No.</label>
+		<input bold type="text" id="CPNo" name="CPNo" placeholder="Cell No"/>&nbsp<br></br>
+		<!-- <input type="button" style="color:red" value="More" onclick=" addMoreInfo()" /><br> -->
+		<!--<input type="text" id="ValidID" name="ValidID" placeholder="Types of Valid ID" size=33 />-->
+		<label for ="ValidID"> Types of Valid ID</label>
+		<select id="ValidID">
+			<option value ="ValidID">SSS ID</option>
+			<option value ="ValidID">Pag ibig ID</option>
+			<option value ="ValidID">Tin ID</option>
+			<option value ="ValidID">Passport ID</option>
+			<option value ="ValidID">Voters ID</option>
+			<option value ="ValidID">license ID</option>
+			<option value ="ValidID">UMID ID</option>
+			<option value ="ValidID">GSIS ID</option>
+			<option value ="ValidID">Philhealth ID</option>
+			</select>
+		<label for ="ValidIDNo"> Valid ID No.</label>
+		<input type="text" id="ValidIDNo" name="ValidIDNo" placeholder="ValidIDNo" /><br></br>
+		</form>
+	</body>
+</html>

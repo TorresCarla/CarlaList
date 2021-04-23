@@ -1,6 +1,6 @@
 
 from django.conf.urls import url
-from RecipeList import views
+from LoanApp import views
 
 urlpatterns = [
 	url(r'^$', views.MainPage, name='mainpage'),
