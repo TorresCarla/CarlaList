@@ -3,7 +3,7 @@ from django.shortcuts import render
 
 # Create your views here.
 def MainPage(request):
-	return render(request,'mainpage.html',{'NewFullName': request.POST.get('FullName'),'NewEmailAddress': request.POST.get('EmailAddress',''),})
+	return render(request,'mainpage.html',{'NewFullName':request.POST.get('FullName'),'NewEmailAddress':request.POST.get('EmailAddress',''),})
 
 #if request.method == 'POST':
 #return HttpResponse(request.POST['FullName'])

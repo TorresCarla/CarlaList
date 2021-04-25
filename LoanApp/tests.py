@@ -3,6 +3,7 @@ from django.test import TestCase
 #from LoanApp.views import MainPage
 #from django.http import HttpRequest
 #from django.template.loader import render_to_string
+from LoanApp.models import Item
 
 class HomePageTest(TestCase):
    
@@ -14,6 +15,21 @@ class HomePageTest(TestCase):
 		response = self.client.post('/', data={'FullName': 'NewFullName'})
 		self.assertIn('NewFullName', response.content.decode())
 		self.assertTemplateUsed(response,'mainpage.html')
+
+class ORMTest(TestCase):
+	def test_saving_retrieving_list(self):
+		txtItem1 = Item()
+		txtItem1.text = 'Item one'
+		txtItem1.save()
+		txtItem2 = Item()
+		txtItem2.text = 'Item two'
+		txtItem2.save()
+		savedItems = Item.objects.all()
+		self.assertEqual(savedItems.count(), 2)
+		savedItem1 = savedItems[0]
+		savedItem2 = savedItems[1]
+		self.assertEqual(savedItem1.text, 'Item one')
+		self.assertEqual(savedItem2.text, 'Item two')
 
 '''	def test_mainpage_returns_correct_views(self):
 		response = self.client.get('/')
