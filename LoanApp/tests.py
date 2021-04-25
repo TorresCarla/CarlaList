@@ -8,7 +8,12 @@ class HomePageTest(TestCase):
    
 	def test_mainpage_returns_correct_views(self):
 		response = self.client.get('/')
-		self.assertTemplateUsed(response, 'mainpage.html')
+		self.assertTemplateUsed(response,'mainpage.html')
+
+	def test_save_POST_request(self):
+		response = self.client.post('/', data={'FullName': 'NewFullName'})
+		self.assertIn('NewFullName', response.content.decode())
+		self.assertTemplateUsed(response,'mainpage.html')
 
 '''	def test_mainpage_returns_correct_views(self):
 		response = self.client.get('/')

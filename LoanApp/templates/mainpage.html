@@ -1,76 +1,140 @@
 <!DOCTYPE HTML>
 <html>
-<title>Loan Application</title>
-<script>
-
-</script>
-<body>
-<h1 style="color:blue; font-size=35px">Loan Application Form</h1>
-<form method="POST">
-<h3 style="color:black; font-size=20px">Personal Information</h3>
-<label for ="Name1"> First Name:</label>
-<input bold type="text" id="Name1" name="Name1" placeholder="First Name" size="25"/>
-<label for ="Name2"> Middle Name:</label>
-<input bold type="text" id="Name2" name="Name2" placeholder="Middle Name" size="25"/>
-<label for ="Name3"> Last Name:</label>
-<input bold type="text" id="Name3" name="Name3" placeholder="Last Name" size="25"/>&nbsp<br></br>
-<label for ="Email"> Email Address:</label>
-<input bold type="text" id="Email" name="Email" placeholder="EmailAddress" size="25"/>
-<label for ="Address"> Residence Address:</label>
-<input bold type="text" id="Address" name="Address" placeholder="ResidenceAddress" size="25"/>
-<label for ="Code"> Zip Code:</label>
-<input bold type="text" id="Code" name="Code" placeholder="ZipCode" size="25"/>&nbsp<br></br>
-<label for ="DateOfBirth"> Date of Birth:</label>
-<input bold type="text" id="DateOfBirth" name="DateOfBirth" placeholder="M/D/Y" size="25"/>
-<label for ="Status"> Marital Status:</label>
-<input bold type="text" id="Status" name="Status" placeholder="MaritalStatus" size="25"/>
-<label for ="Citizenship"> Citizenship:</label>
-<input bold type="text" id="Citizenship" name="Citizenship" placeholder="Citizenship" size="25"/>&nbsp<br></br>
-<label for ="CPNo"> Cellphone No.</label>
-<input bold type="text" id="CPNo" name="CPNo" placeholder="Cell No" size="25"/>&nbsp<br></br>
+	<title>Loan Application</title>
+	<script></script>
+	<body>
+		<h1 style="color: blue; font-size= 35px">
+		Loan Application Form
+		</h1>
+		<form method="POST">
+		<h3 style="color:black; font-size=20px">Personal Information</h3>
+			<label>Full Name:</label>
+			<input
+				type="text" 
+				id="FullName" 
+				name="FullName" 
+				size="25"
+				placeholder="Your Full Name" 
+			/>
+			<label>Email Address:</label>
+			<input 
+				type="text" 
+				id="EmailAddress" 
+				name="EmailAddress" 
+				size="25"
+				placeholder="Your Email Address" 
+			/><br></br>
+			<label>Residence Address:</label>
+			<input 
+				type="text" 
+				id="ResidenceAddress" 
+				name="ResidenceAddress" 
+				size="25"
+				placeholder="Your Residence Address" 
+			/>
+			<label>Zip Code:</label>
+			<input 
+				type="text" 
+				id="ZipCode" 
+				name="ZipCode" 
+				size="25"
+				placeholder="Your ZipCode" 
+			/><br></br>
+			<label>Date of Birth:</label>
+			<input 
+				type="text" 
+				id="DateOfBirth" 
+				name="DateOfBirth" 
+				size="25"
+				placeholder="M/D/Y" 
+			/>
+			<label>Marital Status:</label>
+			<input 
+				type="text" 
+				id="Status" 
+				name="Status" 
+				size="25"
+				placeholder="MaritalStatus"
+			/><br></br>
+			<label>Citizenship:</label>
+			<input 
+				type="text" 
+				id="Citizenship" 
+				name="Citizenship" 
+				size="25"
+				placeholder="Citizenship"
+			/>
+			<label>Cellphone No.</label>
+			<input 
+				type="text" 
+				id="CellNo" 
+				name="CellNo" 
+				size="25"
+				placeholder="Cellphone Number"
+			/><br></br>
 <!--<input type="submit" id="btnConfirm" value="Confirm"/><br></br>-->
 <!-- <input type="submit" id="btnMore" value="More"/><br></br> -->
-<h3 style="color:black; font-size=20px">Identity Information</h3>
+		<h3 style="color:black; font-size=20px">Identity Information</h3>
 <!--<input bold type="text" id="ValidID" name="ValidID" Types of ValidID/>-->
-<label for ="ValidID"> Types of Valid ID:</label>
-<select id="ValidID">
-	<option value ="ValidID"> Select Valid ID</option>
-	<option value ="ValidID"> SSS ID</option>
-	<option value ="ValidID"> Pag ibig ID</option>
-	<option value ="ValidID"> Tin ID</option>
-	<option value ="ValidID"> Passport ID</option>
-	<option value ="ValidID"> Voters ID</option>
-	<option value ="ValidID"> License ID</option>
-	<option value ="ValidID"> UMID ID</option>
-	<option value ="ValidID"> GSIS ID</option>
-	<option value ="ValidID"> Philhealth ID</option>
-</select>
-<label for ="ValidIDNo"> Valid ID No.</label>
-<input bold type="text" id="ValidIDNo" name="ValidIDNo" placeholder="ValidIDNo" size="25"/>
-<h3 style="color:black; font-size=20px">Employment Information</h3>
-<label for ="Income"> Source of Income:</label>
-<select id="Income">
-	<option value ="Income"> Income Source</option>
-	<option value ="Income"> Salary</option>
-	<option value ="Income"> Savings</option>
-	<option value ="Income"> Allowance</option>
-	<option value ="Income"> Pension</option>
-	<option value ="Income"> Others</option>
-</select>
-<label for ="Employment"> Employment Status:</label>
-<select id="Employment">
-	<option value ="Employment"> Employment Status</option>
-	<option value ="Employment"> Self Employed</option>
-	<option value ="Employment"> Full-time Employees</option>
-	<option value ="Employment"> Part-time Employees</option>
-	<option value ="Employment"> Seasonal Employees</option>
-	<option value ="Employment"> Freelancers</option>
-	<option value ="Employment"> Student</option>
-	<option value ="Employment"> Unemployed</option>
-	<option value ="Employment"> Others</option>
-</select>
-</form>
-<table id="idListTable"><br></br>
-</table>
-</body>
+			<label>Types of Valid ID:</label>
+			<select id="ValidID" name="ValidID">
+			<option value ="ValidID"> Select Valid ID</option>
+				<option value ="ValidID"> SSS ID</option>
+				<option value ="ValidID"> Pag ibig ID</option>
+				<option value ="ValidID"> Tin ID</option>
+				<option value ="ValidID"> Passport ID</option>
+				<option value ="ValidID"> Voters ID</option>
+				<option value ="ValidID"> License ID</option>
+				<option value ="ValidID"> UMID ID</option>
+				<option value ="ValidID"> GSIS ID</option>
+				<option value ="ValidID"> Philhealth ID</option>
+			</select>
+			<label>Valid ID No.</label>
+			<input 
+				type="text" 
+				id="ValidIDNo" 
+				name="ValidIDNo" 
+				size="25"
+				placeholder="Your ValidID Number"
+			/>
+		<h3 style="color:black; font-size=20px">Employment Information</h3>
+			<label>Source of Income:</label>
+			<select id="Income" name="Income">
+			<option value ="Income"> Income Source</option>
+				<option value ="Income"> Salary</option>
+				<option value ="Income"> Savings</option>
+				<option value ="Income"> Allowance</option>
+				<option value ="Income"> Pension</option>
+				<option value ="Income"> Others</option>
+			</select>
+			<label>Employment Status:</label>
+			<select id="Employment" name="Employment">
+			<option value ="Employment"> Employment Status</option>
+				<option value ="Employment"> Self Employed</option>
+				<option value ="Employment"> Full-time Employees</option>
+				<option value ="Employment"> Part-time Employees</option>
+				<option value ="Employment"> Seasonal Employees</option>
+				<option value ="Employment"> Freelancers</option>
+				<option value ="Employment"> Student</option>
+				<option value ="Employment"> Unemployed</option>
+				<option value ="Employment"> Others</option>
+			</select>
+			<input 
+				type="submit"
+				id="btnConfirm" 
+				name="btnConfirm"
+				style="color: red; background-color: lightgrey"
+				value="Confirm"
+			/>
+			{% csrf_token %}
+		</form>
+		<table id="idListTable" name="idListTable">
+			<tr>
+				<td>{{ NewFullName }}</td>
+				<td>in</td>
+				<td>{{ NewEmailAddress }}</td>
+				
+			</tr>
+		</table>
+	</body>
 </html>
