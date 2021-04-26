@@ -73,7 +73,7 @@ class PageTest(unittest.TestCase):
 		time.sleep(2)
 		btnConfirm.click()
 		time.sleep(1)
-		#self.check_rows_in_idlisttable('1: Juana S. Dela Cruz in Juanadelacruz@gmail.com')
+		self.check_rows_in_idlisttable('1: Juana S. Dela Cruz in Juanadelacruz@gmail.com')
 		inName = self.browser.find_element_by_id('FullName')
 		time.sleep(1)
 		inName.click()

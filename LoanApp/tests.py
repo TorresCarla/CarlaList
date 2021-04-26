@@ -11,10 +11,21 @@ class HomePageTest(TestCase):
 		response = self.client.get('/')
 		self.assertTemplateUsed(response,'mainpage.html')
 
+	def test_only_saves_items_if_necessary(self):
+		self.client.get('/')
+		self.assertEqual(Item.objects.count(),0)
+
 	def test_save_POST_request(self):
 		response = self.client.post('/', data={'FullName': 'NewFullName'})
-		self.assertIn('NewFullName', response.content.decode())
-		self.assertTemplateUsed(response,'mainpage.html')
+		#self.assertIn('NewFullName', response.content.decode())
+		#self.assertTemplateUsed(response,'mainpage.html')
+
+		self.assertEqual(Item.objects.count(),1)
+		newItem = Item.objects.first()
+		self.assertEqual(newItem.text, 'NewFullName')
+
+		self.assertEqual(response.status_code, 302)
+		self.assertEqual(response['location'], '/')
 
 class ORMTest(TestCase):
 	def test_saving_retrieving_list(self):
