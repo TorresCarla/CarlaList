@@ -79,8 +79,8 @@
 			<label>Types of Valid ID:</label>
 			<select id="ValidID" name="ValidID">
 			<option value ="ValidID"> Select Valid ID</option>
+				<option value ="ValidID"> Pag-ibig ID</option>
 				<option value ="ValidID"> SSS ID</option>
-				<option value ="ValidID"> Pag ibig ID</option>
 				<option value ="ValidID"> Tin ID</option>
 				<option value ="ValidID"> Passport ID</option>
 				<option value ="ValidID"> Voters ID</option>
@@ -110,8 +110,8 @@
 			<label>Employment Status:</label>
 			<select id="Employment" name="Employment">
 			<option value ="Employment"> Employment Status</option>
-				<option value ="Employment"> Self Employed</option>
 				<option value ="Employment"> Full-time Employees</option>
+				<option value ="Employment"> Self Employed</option>
 				<option value ="Employment"> Part-time Employees</option>
 				<option value ="Employment"> Seasonal Employees</option>
 				<option value ="Employment"> Freelancers</option>
@@ -128,13 +128,18 @@
 			/>
 			{% csrf_token %}
 		</form>
-		<table id="idListTable" name="idListTable">
+
+		<table id="idListTable">
+			{% for item in NewFullName %}
 			<tr>
-				<td>1:{{ NewFullName }}</td>
-				<td>in</td>
-				<td>{{ NewEmailAddress }}</td>
-				
+				<td>{{ forloop.counter }}: {{ item.text }}</td>
 			</tr>
+			{% endfor %}
 		</table>
+		<!-- <table id="idListTable">
+			<tr><td>1: {{ NewFullName }}</td>
+				<td>in</td>
+				<td>{{ NewEmailAddress }}</td></tr>
+		</table> -->
 	</body>
 </html>

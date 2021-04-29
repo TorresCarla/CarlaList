@@ -6,7 +6,9 @@ def MainPage(request):
 	if request.method == 'POST':
 		Item.objects.create(text=request.POST['FullName'])
 		return redirect('/')
-	return render(request,'mainpage.html')
+	#return render(request,'mainpage.html')
+	items = Item.objects.all()
+	return render(request, 'mainpage.html', {'NewFullName': items})
 
 #def MainPage(request):
 #	if request.method == 'POST':
