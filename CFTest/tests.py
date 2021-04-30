@@ -10,8 +10,8 @@ class PageTest(LiveServerTestCase):
 	def setUp(self):
 		self.browser = webdriver.Firefox()
    
-	#def tearDown(self):
-	#	self.browser.quit()
+	def tearDown(self):
+		self.browser.quit()
 
 	def wait_rows_in_idlisttable(self, row_text):
 		start_time = time.time()
@@ -33,7 +33,7 @@ class PageTest(LiveServerTestCase):
 
 
  
-	def test_start_list_and_retrieve_it(self):
+	def test_start_list_one_user(self):
 		self.browser.get(self.live_server_url)
 		self.assertIn('Loan Application', self.browser.title)
 		headerText = self.browser.find_element_by_tag_name('h1').text
@@ -55,9 +55,9 @@ class PageTest(LiveServerTestCase):
 		self.assertEqual(inputName.get_attribute('placeholder'),'Your Full Name')
 		#self.assertEqual(inputValidID.get_attribute('placeholder'),'Types of Valid ID')
 		time.sleep(1)
-		inputName.send_keys('Juana S. Dela Cruz')
+		inputName.send_keys('Jane S. Dela Cruz')
 		time.sleep(1)
-		inputEmail.send_keys('Juanadelacruz@gmail.com')
+		inputEmail.send_keys('Janedelacruz@gmail.com')
 		time.sleep(1)
 		inputAddress.send_keys('123 Kundiman Street, Sampaloc')
 		time.sleep(1)
@@ -80,7 +80,7 @@ class PageTest(LiveServerTestCase):
 		selectEmployment.send_keys(Keys.ARROW_DOWN)
 		btnConfirm.click()
 		time.sleep(1)
-		self.wait_rows_in_idlisttable('1: Juana S. Dela Cruz') #in Juanadelacruz@gmail.com')
+		self.wait_rows_in_idlisttable('1: Jane S. Dela Cruz') #in Juanadelacruz@gmail.com')
 		time.sleep(1)
 		inName = self.browser.find_element_by_id('FullName')
 		inName.click()
@@ -93,10 +93,59 @@ class PageTest(LiveServerTestCase):
 		btnConfirm = self.browser.find_element_by_id('btnConfirm')
 		btnConfirm.click()
 		self.wait_rows_in_idlisttable('2: Prince J. Valdez') #in Valdez_PrinceJ@gmail.com")
-		#self.fail('Finish the test!')
+
+	def test_other_user_different_urls(self):
+		self.browser.get(self.live_server_url)
+		time.sleep(1)
+		inName = self.browser.find_element_by_id('FullName')
+		inName.click()
+		inName.send_keys('Julianna L. Madrid')
+		time.sleep(1)
+		inEmail = self.browser.find_element_by_id('EmailAddress')
+		inEmail.click()
+		inEmail.send_keys('JuliannaLM45@gmail.com')
+		time.sleep(1)
+		btnConfirm = self.browser.find_element_by_id('btnConfirm')
+		btnConfirm.click()
+		self.wait_rows_in_idlisttable('1: Julianna L. Madrid') #in JuliannaLM45@gmail.com')
+		viewlist_url = self.browser.current_url
+		self.assertRegex(viewlist_url, '/LoanApp/.+')
+
+		self.browser.quit()
+		self.browser = webdriver.Firefox()
+		self.browser.get(self.live_server_url)
+		pageBody = self.browser.find_element_by_tag_name('body').text
+		self.assertNotIn('Julianna L. Madrid in JuliannaLM45@gmail.com', pageBody)
+		time.sleep(1)
+		inName = self.browser.find_element_by_id('FullName')
+		inName.click()
+		inName.send_keys('Miguel C. Tolentino')
+		time.sleep(1)
+		inEmail = self.browser.find_element_by_id('EmailAddress')
+		inEmail.click()
+		inEmail.send_keys('MiggyTolentino@gmail.com')
+		time.sleep(1)
+		btnConfirm = self.browser.find_element_by_id('btnConfirm')
+		btnConfirm.click()
+		self.wait_rows_in_idlisttable('1: Miguel C. Tolentino') #in MiggyTolentino@gmail.com')
+		user2_url = self.browser.current_url
+		self.assertRegex(user2_url, '/LoanApp/.+')
+		self.assertNotEqual(viewlist_url, user2_url)
+		pageBody = self.browser.find_element_by_tag_name('body').text
+		#self.assertNotIn('Julianna L. Madrid in JuliannaLM45@gmail.com', pageBody)
+		self.assertIn('Miguel C. Tolentino in MiggyTolentino@gmail.com', pageBody)
 
 
 
+
+
+
+
+
+
+
+
+	#self.fail('Finish the test!')
 
 #def test_browser_title(self):
 	#	self.browser.get('http://localhost:8000')

@@ -1,8 +1,4 @@
-#from django.urls import resolve
 from django.test import TestCase
-#from LoanApp.views import MainPage
-#from django.http import HttpRequest
-#from django.template.loader import render_to_string
 from LoanApp.models import Item
 
 class HomePageTest(TestCase):
@@ -26,7 +22,7 @@ class HomePageTest(TestCase):
 	def test_redirects_POST(self):
 		response = self.client.post('/', data={'FullName': 'NewFullName'})
 		self.assertEqual(response.status_code, 302)
-		self.assertEqual(response['location'], '/')
+		self.assertEqual(response['location'], '/LoanApp/viewlist_url/')
 
 	def test_template_display_list(self):
 		Item.objects.create(text='List item 1')
@@ -34,7 +30,6 @@ class HomePageTest(TestCase):
 		response = self.client.get('/')
 		self.assertIn('List item 1', response.content.decode())
 		self.assertIn('List item 2', response.content.decode())
-
 
 class ORMTest(TestCase):
 	def test_saving_retrieving_list(self):
@@ -51,7 +46,24 @@ class ORMTest(TestCase):
 		self.assertEqual(savedItem1.text, 'Item one')
 		self.assertEqual(savedItem2.text, 'Item two')
 
-'''	def test_mainpage_returns_correct_views(self):
+class ViewTest(TestCase):
+	def test_display_all(self):
+		Item.objects.create(text='Liza Salinas')
+		Item.objects.create(text='Angelyn Ramos')
+		response = self.client.get('/LoanApp/viewlist_url/')
+		self.assertContains(response, 'Liza Salinas')
+		self.assertContains(response, 'Angelyn Ramos')
+
+
+
+
+
+'''#from django.urls import resolve
+	#from LoanApp.views import MainPage
+	#from django.http import HttpRequest
+	#from django.template.loader import render_to_string
+
+	def test_mainpage_returns_correct_views(self):
 		response = self.client.get('/')
 		html = response.content.decode('utf8')
 		string_html = render_to_string('mainpage.html')

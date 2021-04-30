@@ -4,6 +4,7 @@ from LoanApp import views
 
 urlpatterns = [
 	url(r'^$', views.MainPage, name='mainpage'),
+	url(r'^LoanApp/viewlist_url/$', views.ViewList, name='viewlist'),
 ]
 
 """CarlaList URL Configuration

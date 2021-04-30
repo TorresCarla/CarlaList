@@ -5,8 +5,12 @@ from LoanApp.models import Item
 def MainPage(request):
 	if request.method == 'POST':
 		Item.objects.create(text=request.POST['FullName'])
-		return redirect('/')
+		return redirect('/LoanApp/viewlist_url/')
 	#return render(request,'mainpage.html')
+	items = Item.objects.all()
+	return render(request, 'mainpage.html', {'NewFullName': items})
+
+def ViewList(request):
 	items = Item.objects.all()
 	return render(request, 'mainpage.html', {'NewFullName': items})
 
@@ -23,7 +27,6 @@ def MainPage(request):
 	# item1.save()
 	# #return render(request,'mainpage.html',{'NewFullName':request.POST.get('FullName',''),})
 	# return render(request,'mainpage.html',{'NewFullName': item1.text,})
-
 
 
 
