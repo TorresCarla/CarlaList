@@ -127,7 +127,7 @@ class PageTest(LiveServerTestCase):
 		time.sleep(1)
 		btnConfirm = self.browser.find_element_by_id('btnConfirm')
 		btnConfirm.click()
-		self.wait_rows_in_idlisttable('1: Miguel C. Tolentino') #in MiggyTolentino@gmail.com')
+		self.wait_rows_in_idlisttable('2: Miguel C. Tolentino') #in MiggyTolentino@gmail.com')
 		user2_url = self.browser.current_url
 		self.assertRegex(user2_url, '/LoanApp/.+')
 		self.assertNotEqual(viewlist_url, user2_url)
