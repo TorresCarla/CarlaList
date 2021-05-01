@@ -6,9 +6,9 @@ class HomePageTest(TestCase):
 		response = self.client.get('/')
 		self.assertTemplateUsed(response,'mainpage.html')
 
-	#def test_only_saves_items_if_necessary(self):
-	#	self.client.get('/')
-	#	self.assertEqual(Item.objects.count(), 0)
+	def test_only_saves_items_if_necessary(self):
+		self.client.get('/')
+		self.assertEqual(Item.objects.count(), 0)
 
 	#def test_template_display_list(self):
 	#	Item.objects.create(text='List item 1')
@@ -54,8 +54,8 @@ class CreateListTest(TestCase):
 	def test_redirects_POST(self):
 		response = self.client.post('/LoanApp/newlist_url', data={'FullName': 'NewFullName'})
 		self.assertRedirects(response, 'LoanApp/viewlist_url/')
-		#self.assertEqual(response.status_code, 302)
-		#self.assertEqual(response['location'], '/LoanApp/viewlist_url/')
+#		#self.assertEqual(response.status_code, 302)
+#		#self.assertEqual(response['location'], '/LoanApp/viewlist_url/')
 
 
 

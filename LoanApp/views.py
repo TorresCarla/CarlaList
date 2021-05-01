@@ -3,9 +3,9 @@ from django.http import HttpResponse
 from LoanApp.models import Item
 
 def MainPage(request):
-	#if request.method == 'POST':
-	#	Item.objects.create(text=request.POST['FullName'])
-	#	return redirect('/LoanApp/viewlist_url/')
+	if request.method == 'POST':
+		Item.objects.create(text=request.POST['FullName'])
+		return redirect('/LoanApp/viewlist_url/')
 	return render(request, 'mainpage.html')
 
 def ViewList(request):

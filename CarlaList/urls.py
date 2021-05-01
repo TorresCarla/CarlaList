@@ -4,10 +4,10 @@ from LoanApp import views
 
 urlpatterns = [
 	url(r'^$', views.MainPage, name='mainpage'),
-	url(r'^LoanApp/viewlist_url/$', views.ViewList, name='viewlist'),
+	url(r'^LoanApp/(.+)/$', views.ViewList, name='viewlist'),
     url(r'^LoanApp/newlist_url/$', views.NewList, name='newlist'),
-
-]
+    url(r'^LoanApp/(.+)/additem$', views.AddItem, name='additem'),
+    ]
 
 """CarlaList URL Configuration
 
