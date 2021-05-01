@@ -3,16 +3,23 @@ from django.http import HttpResponse
 from LoanApp.models import Item
 
 def MainPage(request):
-	if request.method == 'POST':
-		Item.objects.create(text=request.POST['FullName'])
-		return redirect('/LoanApp/viewlist_url/')
-	#return render(request,'mainpage.html')
-	items = Item.objects.all()
-	return render(request, 'mainpage.html', {'NewFullName': items})
+	#if request.method == 'POST':
+	#	Item.objects.create(text=request.POST['FullName'])
+	#	return redirect('/LoanApp/viewlist_url/')
+	return render(request, 'mainpage.html')
 
 def ViewList(request):
 	items = Item.objects.all()
-	return render(request, 'mainpage.html', {'NewFullName': items})
+	return render(request, 'LoanAF.html', {'NewFullName': items})
+
+def NewList(request):
+	Item.objects.create(text=request.POST['FullName'])
+	return redirect('/LoanApp/viewlist_url/')
+
+
+
+#return render(request,'mainpage.html')
+#items = Item.objects.all()
 
 #def MainPage(request):
 #	if request.method == 'POST':
