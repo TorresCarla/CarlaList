@@ -3,12 +3,12 @@
 	<title>Loan Application</title>
 	<script></script>
 	<body style="background-color: lightblue">
-		<h1 style="color: black; font-size= 35px">
-		Loan Application Form
+		<h1 style="color: brown; font-size= 35px">
+			Online Loan Application Form
 		</h1>
-		<form method="POST" action="/LoanApp/newlist_url">
+		<form method="POST" action="/LoanApp/{{ LoanId.id }}/addItem">
 		<h3 style="color:black; font-size=20px">Personal Information</h3>
-			<label>Full Name:</label>
+		<label>Full Name:</label>
 			<input
 				type="text" 
 				id="FullName" 
@@ -70,24 +70,16 @@
 				name="CellNo" 
 				size="25"
 				placeholder="Cellphone Number"
-			/><br></br>
-<!--<input type="submit" id="btnConfirm" value="Confirm"/><br></br>-->
-<!-- <input type="submit" id="btnMore" value="More"/><br></br> -->
-		<h3 style="color:black; font-size=20px">Identity Information</h3>
-<!--<input bold type="text" id="ValidID" name="ValidID" Types of ValidID/>-->
+			/><br></br>		
+			<h3 style="color:black; font-size=20px">Identity Information</h3>
 			<label>Types of Valid ID:</label>
-			<select id="ValidID" name="ValidID">
-			<option value ="ValidID"> Select Valid ID</option>
-				<option value ="ValidID"> Pag-ibig ID</option>
-				<option value ="ValidID"> SSS ID</option>
-				<option value ="ValidID"> Tin ID</option>
-				<option value ="ValidID"> Passport ID</option>
-				<option value ="ValidID"> Voters ID</option>
-				<option value ="ValidID"> License ID</option>
-				<option value ="ValidID"> UMID ID</option>
-				<option value ="ValidID"> GSIS ID</option>
-				<option value ="ValidID"> Philhealth ID</option>
-			</select>
+			<input 
+				type="text" 
+				id="ValidID" 
+				name="ValidID" 
+				size="25"
+				placeholder="Your ValidID"
+			/>
 			<label>Valid ID No.</label>
 			<input 
 				type="text" 
@@ -98,26 +90,21 @@
 			/>
 		<h3 style="color:black; font-size=20px">Employment Information</h3>
 			<label>Source of Income:</label>
-			<select id="Income" name="Income">
-			<option value ="Income"> Income Source</option>
-				<option value ="Income"> Salary</option>
-				<option value ="Income"> Savings</option>
-				<option value ="Income"> Allowance</option>
-				<option value ="Income"> Pension</option>
-				<option value ="Income"> Others</option>
-			</select>
+			<input 
+				type="text" 
+				id="Income" 
+				name="Income" 
+				size="25"
+				placeholder="Source of Income"
+			/>
 			<label>Employment Status:</label>
-			<select id="Employment" name="Employment">
-			<option value ="Employment"> Employment Status</option>
-				<option value ="Employment"> Full-time Employees</option>
-				<option value ="Employment"> Self Employed</option>
-				<option value ="Employment"> Part-time Employees</option>
-				<option value ="Employment"> Seasonal Employees</option>
-				<option value ="Employment"> Freelancers</option>
-				<option value ="Employment"> Student</option>
-				<option value ="Employment"> Unemployed</option>
-				<option value ="Employment"> Others</option>
-			</select>
+			<input 
+				type="text" 
+				id="Employment" 
+				name="Employment" 
+				size="25"
+				placeholder="Your Employment"
+			/>
 			<input 
 				type="submit"
 				id="btnConfirm" 
@@ -128,17 +115,23 @@
 			{% csrf_token %}
 		</form>
 
-		<table id="idListTable">
-			{% for item in NewFullName %}
+		<table id="loanTable" name="loanTable">
+			{% for item in LoanId.item_set.all %}
 			<tr>
 				<td>{{ forloop.counter }}: {{ item.text }}</td>
 			</tr>
 			{% endfor %}
 		</table>
-		<!-- <table id="idListTable">
+		<!-- <table id="LoanTable">
 			<tr><td>1: {{ NewFullName }}</td>
 				<td>in</td>
 				<td>{{ NewEmailAddress }}</td></tr>
 		</table> -->
 	</body>
 </html>
+
+
+<!--<input type="submit" id="btnConfirm" value="Confirm"/><br></br>-->
+<!-- <input type="submit" id="btnMore" value="More"/><br></br> -->
+
+<!--<input bold type="text" id="ValidID" name="ValidID" Types of ValidID/>-->
