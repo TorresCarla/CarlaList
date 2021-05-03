@@ -267,3 +267,26 @@ class PageTest(LiveServerTestCase):
 
 
 
+	#self.fail('Finish the test!')
+
+#def test_browser_title(self):
+	#	self.browser.get('http://localhost:8000')
+	#	self.assertIn('Loan Application', self.browser.title)
+	#	self.fail('Finish the test!')
+
+	#btnMore.click()
+	#time.sleep(2)
+	#btnMore = self.browser.find_element_by_id('btnMore')
+
+	#table = self.browser.find_element_by_id('LoanTable')
+	#rows = table.find_elements_by_tag_name('tr')
+	#self.assertIn('1:Areil B. Sabalboro in ArielSabalboro@gmail.com', [row.text for row in rows])
+	#self.assertIn('2:Fhae D. Encenares in Encenares_Fhaechi@gmail.com', [row.text for row in rows])
+	#self.assertTrue(any(row.text =='1: Juana A. Cruz'))
+	#self.assertEqual(inputEmail.get_attribute('placeholder'),'Your Email Address')
+	#self.assertEqual(inputValidID.get_attribute('placeholder'),'Types of Valid ID')
+
+
+#if __name__ == '__main__':
+#   unittest.main(warnings='ignore')
+
