@@ -1,127 +1,63 @@
 <!DOCTYPE HTML>
 <html>
-	<title>Loan Application</title>
-	<script></script>
+	<title>Amount Loan</title>
+	<script type="text/javascript">
+		function calculate(){
+			var loan = document.getElementById('loan').value;
+			var interest = document.getElementById('interest').value;
+			var months = document.getElementById('months').value;
+			var interest = (loan * (interest * .01)) /months;
+			var payment = ((loan / months) + interest).toFixed(2);
+			payment = payment.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+			document.getElementById('payment').innerHTML = "Monthly Payment= P" +payment;
+		}
+	</script>
 	<body style="background-color: lightblue">
-		<h1 style="color: brown; font-size= 35px">
-			Online Loan Application Form
-		</h1>
-		<form method="POST" action="/LoanApp/{{ LoanId.id }}/addItem">
-		<h3 style="color:black; font-size=20px">Personal Information</h3>
-		<label>Full Name:</label>
-			<input
-				type="text" 
-				id="FullName" 
-				name="FullName"
-				size="25"
-				placeholder="Your Full Name" 
-			/>
-			<label>Email Address:</label>
-			<input 
-				type="text" 
-				id="EmailAddress" 
-				name="EmailAddress" 
- 				placeholder="Your Email Address" 
-			/><br></br>
-			<label>Residence Address:</label>
-			<input 
-				type="text" 
-				id="ResidenceAddress" 
-				name="ResidenceAddress" 
-				size="25"
-				placeholder="Your Residence Address" 
-			/>
-			<label>Zip Code:</label>
-			<input 
-				type="text" 
-				id="ZipCode" 
-				name="ZipCode" 
-				size="25"
-				placeholder="Your ZipCode" 
-			/><br></br>
-			<label>Date of Birth:</label>
-			<input 
-				type="text" 
-				id="DateOfBirth" 
-				name="DateOfBirth" 
-				size="25"
-				placeholder="M/D/Y" 
-			/>
-			<label>Marital Status:</label>
-			<input 
-				type="text" 
-				id="Status" 
-				name="Status" 
-				size="25"
-				placeholder="MaritalStatus"
-			/><br></br>
-			<label>Citizenship:</label>
-			<input 
-				type="text" 
-				id="Citizenship" 
-				name="Citizenship" 
-				size="25"
-				placeholder="Citizenship"
-			/>
-			<label>Cellphone No.</label>
-			<input 
-				type="text" 
-				id="CellNo" 
-				name="CellNo" 
-				size="25"
-				placeholder="Cellphone Number"
-			/><br></br>		
-			<h3 style="color:black; font-size=20px">Identity Information</h3>
-			<label>Types of Valid ID:</label>
-			<input 
-				type="text" 
-				id="ValidID" 
-				name="ValidID" 
-				size="25"
-				placeholder="Your ValidID"
-			/>
-			<label>Valid ID No.</label>
-			<input 
-				type="text" 
-				id="ValidIDNo" 
-				name="ValidIDNo" 
-				size="25"
-				placeholder="Your ValidID Number"
-			/>
-		<h3 style="color:black; font-size=20px">Employment Information</h3>
-			<label>Source of Income:</label>
-			<input 
-				type="text" 
-				id="Income" 
-				name="Income" 
-				size="25"
-				placeholder="Source of Income"
-			/>
-			<label>Employment Status:</label>
-			<input 
-				type="text" 
-				id="Employment" 
-				name="Employment" 
-				size="25"
-				placeholder="Your Employment"
-			/>
-			<input 
-				type="submit"
-				id="btnConfirm" 
-				name="btnConfirm"
-				style="color: black; background-color: wheat"
-				value="Confirm"
-			/>
+		<center>
+			<h1 style="color: brown; font-size= 35px">
+				Online Loan Application Form
+			</h1>
+			<form method="POST" action="/LoanApp/{{ LoanId.id }}/addItem">
+			<label>Amount Loaned:</label>
+				<input
+					type="number" 
+					id="loan"
+					min="1"
+					max="1000000"
+					placeholder="amount"
+					onchange="calculate()" 
+				/><br></br>
+			<label>Interest Rate(%):</label>
+				<input 
+					type="number" 
+					id="interest"
+					min="0"
+					max="100"
+					step=".1"
+					placeholder="interest%"
+					onchange="calculate()" 
+				/><br></br>
+			<label>Months:</label>
+				<input 
+					type="number" 
+					id="months"
+					min="1"
+					max="72"
+					step="1"
+					placeholder="months"
+					onchange="calculate()" 
+				/><br></br>
 			{% csrf_token %}
-		</form>
-
-		<table id="loanTable" name="loanTable">
-			{% for item in LoanId.item_set.all %}
-			<tr>
-				<td>{{ forloop.counter }}: {{ item.text }}</td>
-			</tr>
-			{% endfor %}
-		</table>
+			</form>
+			<h2 id="payment"></h2>
+		</center>
+			<table id="loanTable" name="loanTable">
+				{% for item in LoanId.item_set.all %}
+				<tr>
+					<td>{{ forloop.counter }}: {{ item.text }}</td>
+				</tr>
+				{% endfor %}
+			</table>
 		<!-- <table id="LoanTable">
 			<tr><td>1: {{ NewFullName }}</td>
 				<td>in</td>
