@@ -20,9 +20,16 @@ class Loaner(models.Model):
 	def __str__(self):
 		return self.FullName
 
-class Item(models.Model):
+class SignUp(models.Model):
 	LoanId = models.ForeignKey(Loaner, on_delete=models.CASCADE, null=True)
-	text = models.TextField(default="")
+	UserName = models.TextField(default="")
+	Password = models.TextField(default="", max_length=10)
+
+	def __str__(self):
+		return self.SignUp
+
+class LogIn(models.Model):
+	LoanId = models.ForeignKey(Loaner, on_delete=models.CASCADE, null=True)
 	UserName = models.TextField(default="")
 	Password = models.TextField(default="", max_length=10)
 

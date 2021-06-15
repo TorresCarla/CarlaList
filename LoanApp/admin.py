@@ -1,8 +1,9 @@
 from django.contrib import admin
-from .models import Loaner, Item, AmountLoan, Branches, Repayment
+from .models import Loaner, SignUp, LogIn, AmountLoan, Branches, Repayment
 
 admin.site.register(Loaner)
-admin.site.register(Item)
+admin.site.register(SignUp)
+admin.site.register(LogIn)
 admin.site.register(AmountLoan)
 admin.site.register(Branches)
 admin.site.register(Repayment)

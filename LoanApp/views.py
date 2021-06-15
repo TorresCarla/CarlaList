@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from LoanApp.models import Item, Loaner
+from LoanApp.models import SignUp, Loaner
 from django.shortcuts import render, redirect
 
 def MainPage(request):
@@ -11,12 +11,12 @@ def ViewList(request, LoanId):
 
 def NewList(request):
 	newLoaner = Loaner.objects.create()
-	Item.objects.create(LoanId=newLoaner, text=request.POST['FullName'])
+	Item.objects.create(LoanId=newLoaner, signup=request.POST['FullName'])
 	return redirect(f'/LoanApp/{newLoaner.id}/')
 
 def AddItem(request,lId):
 	lId = Loaner.objects.get(id=lId)
-	Item.objects.create(LoanId=lId,text=request.POST['FullName'])
+	Item.objects.create(LoanId=lId,signup=request.POST['FullName'])
 	return redirect(f'/LoanApp/{lId.id}/')
 
 
