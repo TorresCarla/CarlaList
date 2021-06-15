@@ -1,18 +1,18 @@
 from django.db import models
-from django.utils import timezone
+from django.contrib.auth.models import User
 
 class Loaner(models.Model):
 	FullName = models.TextField(default="")
 	EmailAddress = models.TextField(default="")
-	ResidenceAddress = models.TextField(default="")
-	ZipCode = models.TextField(default="")
+	ResidenceAddress = models.CharField(default="")
+	ZipCode = models.CharField(default="")
 	DateOfBirth = models.TextField(default="")
 	Status = models.TextField(default="")
 	Citizenship = models.TextField(default="")
 	CellNo = models.CharField(default="", max_length=12)
 	Friend = models.TextField(default="")
 	FriendCellNo = models.CharField(default="", max_length=12)
-	ValidID = models.TextField(default="")
+	ValidID = models.ImageField(upload_to='ValidID/Loaner/',null=True,blank=True)
 	ValidIDNo = models.CharField(default="", max_length=15)
 	Income = models.TextField(default="")
 	Employment = models.TextField(default="")
@@ -26,7 +26,7 @@ class SignUp(models.Model):
 	Password = models.TextField(default="", max_length=10)
 
 	def __str__(self):
-		return self.SignUp
+		return self.UserName
 
 class AmountLoan(models.Model):
 	LoanId = models.ForeignKey(Loaner, on_delete=models.SET_NULL, null=True)
