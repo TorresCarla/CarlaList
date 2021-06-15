@@ -1,14 +1,17 @@
 from django.conf.urls import url
 from LoanApp import views
-
 from django.contrib import admin
+from django.urls import path, include
 
 urlpatterns = [
 	url(r'^$', views.MainPage, name='mainpage'),
-    url('admin/', admin.site.urls),
-	url(r'^LoanApp/(\d+)/$', views.ViewList, name='viewlist'),
-	url(r'^LoanApp/newlist_url$', views.NewList, name='newlist'),
-	url(r'^LoanApp/(\d+)/addItem$', views.AddItem, name='additem'),	
+  	url(r'^LoanApp/signup', views.LoanAF, name='signup'),
+    url(r'^LoanApp/LoanAF', views.LoanAF, name='loanaf'),
+    url(r'^LoanApp/aboutus', views.AboutUs, name='aboutus'), 
+    url(r'^LoanApp/contacts', views.Contacts, name='contacts'),
+    url(r'^LoanApp/(\d+)/$', views.ViewList, name='viewlist'),
+    url(r'^LoanApp/newlist_url$', views.NewList, name='newlist'),
+    url(r'^LoanApp/(\d+)/AddSignUp$', views.AddSignUp, name='addsigup'),
 ]
 
 """CarlaList URL Configuration

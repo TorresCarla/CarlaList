@@ -1,9 +1,26 @@
-from django.http import HttpResponse
+from django.http import HttpResponseRedirect
 from LoanApp.models import SignUp, Loaner
-from django.shortcuts import render, redirect
+from django.shortcuts import render,redirect,reverse
+from django.contrib.auth.decorators import login_required,user_passes_test
+from django.conf import settings
+from django.contrib.auth.models import User
 
 def MainPage(request):
-	return render(request, 'mainpage.html')
+	if request.user.is_authenticated:
+		return HttpResponseRedirect('afterlogin')
+		return render(request,'mainpage.html')
+
+def SignUp(request):
+		return render(request,'signup.html')
+
+def LoanAF(request):
+	return render(request, 'LoanAF.html')
+
+def AboutUs(request):
+	return render(request, 'aboutus.html')
+
+def Contacts(request):
+	return render(request, 'contacts.html')
 
 def ViewList(request, LoanId):
 	lId = Loaner.objects.get(id=LoanId)
@@ -11,15 +28,13 @@ def ViewList(request, LoanId):
 
 def NewList(request):
 	newLoaner = Loaner.objects.create()
-	Item.objects.create(LoanId=newLoaner, signup=request.POST['FullName'])
+	SignUp.objects.create(LoanId=newLoaner, username=request.POST['FullName'])
 	return redirect(f'/LoanApp/{newLoaner.id}/')
 
-def AddItem(request,lId):
+def AddSignUp(request,lId):
 	lId = Loaner.objects.get(id=lId)
-	Item.objects.create(LoanId=lId,signup=request.POST['FullName'])
+	SignUp.objects.create(LoanId=lId,username=request.POST['FullName'])
 	return redirect(f'/LoanApp/{lId.id}/')
-
-
 	
 
 

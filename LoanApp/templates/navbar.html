@@ -6,7 +6,6 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <meta name="viewport" content="width =device-width, initial-scale=1">
         <link href="https://font.googleapis.com/css?family=kaushan+Script|Poppins&display=swap" rel="stylesheet">
-        <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
 </head>
 <body>
 
@@ -25,58 +24,6 @@
 <div id="menuBtn">
     <img src="{% static 'menu.png' %}" id="menu">
 </div>
-
-<section id="background">
-    <img src="{% static 'logo.png' %}"" class="logo">
-    <div class="background-text">
-        <h1>Online Loan Application</h1>
-        <p>Trusted partner for your financial crisis</p>
-        <h4>Borrow, pay, repeat</h4>
-    </div>
-</section>
-
-<section id="about-us">
-<div class="title-text">
-<p>ABOUT US</p>
-</div>
-<div class="about-us-box">
-    <div class="about-us-desc">
-        <div class="about-us-icon"></div>
-        <div class="about-us-text">
-            <p> <b>Loan Application</b> is a Online Loan Application Website.
-             <br> This website helps people to apply for loan. This application will ask for the loan amount needed and may request that the borrower specify a term. The lender will charge different rates of interest depending on where borrower live as well as their financial and employment status.</p>
-        </div>
-    </div>
-</div>
-</section>
-
-{%block content %} {% endblock %}
-
-<section id="contact">
-    <div class="title-text">
-    <p>CONTACTS</p>
-    </div>
-    <div class="contact-row">
-    <div class="contact-left">
-        <h1>Open Hours</h1>
-        <p><i class="fa fa-clock-o"></i>Monday to Sunday - 7:00AM to 9:00PM</p>
-    </div>
-    <div class="contact-right">
-        <h1>Contact Us</h1>
-        <p>LoanApp@loanwebsite.com<i class="fa fa-paper-plane"></i></p>
-        <p>(043) 412-0304<i class="fa fa-phone"></i></p>
-    </div>
-    </div>
-
-    <div class="social-links">
-        <i class="fa fa-facebook"></i>
-        <i class="fa fa-instagram"></i>
-        <i class="fa fa-twitter"></i>
-        <i class="fa fa-youtube-play"></i>
-        <p>Copyright © 2021 Loan Application. All rights reserved.</p>
-    </div>
-    
-</section>
 
 <script>
 var menuBtn = document.getElementById("menuBtn")
@@ -102,4 +49,6 @@ var scroll = new SmoothScroll('a[href*="#"]', {
 });
 
 </script>
-</html>''
+</html>
+
+{%block content %} {% endblock %}
