@@ -28,14 +28,6 @@ class SignUp(models.Model):
 	def __str__(self):
 		return self.SignUp
 
-class LogIn(models.Model):
-	LoanId = models.ForeignKey(Loaner, on_delete=models.CASCADE, null=True)
-	UserName = models.TextField(default="")
-	Password = models.TextField(default="", max_length=10)
-
-	def __str__(self):
-		return self.LogIn
-
 class AmountLoan(models.Model):
 	LoanId = models.ForeignKey(Loaner, on_delete=models.SET_NULL, null=True)
 	AmountLoan = models.CharField(default="", max_length=1000000)
