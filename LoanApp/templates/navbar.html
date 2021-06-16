@@ -2,35 +2,47 @@
 <head>
 {% load static %}
         <title>Loan Application</title>
-        <link rel="stylesheet" href="{% static 'navbar.css' %}">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <meta name="viewport" content="width =device-width, initial-scale=1">
         <link href="https://font.googleapis.com/css?family=kaushan+Script|Poppins&display=swap" rel="stylesheet">
 </head>
-<body>
 
 <div class="menu-bar">
-<div id="sideNav">
-    <nav>
+<div id="menuNav">
+    <nav> 
+       <style>
+            ul {
+                list-style-type: none;
+                margin: 20px;
+                padding: 30px;
+                overflow: hidden;
+                }
+                
+                li {
+                  float: left;
+                }
+
+                li a {
+                display: block;
+                margin: 10px;
+                padding: 30px;
+                font-size: 15px;
+                }
+        </style>
     <ul>
-        <a href="{% url 'mainpage' %}"><li><i class="fa fa-home"></i>Home</li></a>
-        <a href="{% url 'aboutus' %}"><li><i class="fa fa-info"></i>About Us</li></a>
-        <a href="{% url 'signup' %}"><li><i class="fa fa-info"></i>Sign Up</li></a>
-        <a href="{% url 'login' %}"><li><i class="fa fa-info"></i>Log In</li></a>
-        <a href="{% url 'applyform' %}"><li><i class="fa fa-file"></i>Apply Loan</li></a>
-        <a href="{% url 'loanaf' %}"><li><i class="fa fa-money"></i>Amount Loan</li></a>
-        <a href="{% url 'repay_branch' %}"><li><i class="fa fa-bank"></i>Repay and Branch</li></a>
-        <a href="{% url 'contacts' %}"><li><i class="fa fa-phone"></i>Contact</li></a>
+        <li><a href="{% url 'mainpage' %}"><i class="fa fa-home"></i>Home</a></li>
+        <li><a href="{% url 'aboutus' %}"><i class="fa fa-info"></i>About Us</a></li>
+        <li><a href="{% url 'applyform' %}"><i class="fa fa-file"></i>Apply Loan</a></li>
+        <li><a href="{% url 'loanaf' %}"><i class="fa fa-money"></i>Amount Loan</a></li>
+        <li><a href="{% url 'repay_branch' %}"><i class="fa fa-bank"></i>Repay and Branch</li></a></li>
+        <li><a href="{% url 'contacts' %}"><i class="fa fa-phone"></i>Contact</a></li>
     </ul>
     </nav>
     
 </div>
 </div>
-<div id="menuBtn">
-    <img src="{% static 'menu.png' %}" id="menu">
-</div>
 
-<script>
+<!--<script>
 var menuBtn = document.getElementById("menuBtn")
 var sideNav = document.getElementById("sideNav")
 var menu = document.getElementById("menu")
@@ -46,7 +58,7 @@ menuBtn.onclick = function(){
         sideNav.style.right = "-250px"
         menu.src = "{% static 'menu.png' %}";
     }
-}
+}-->
 </script>
 </html>
 

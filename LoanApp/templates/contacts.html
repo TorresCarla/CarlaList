@@ -7,19 +7,19 @@
     <meta name="viewport" content="width =device-width, initial-scale=1">
     <link href="https://font.googleapis.com/css?family=kaushan+Script|Poppins&display=swap" rel="stylesheet">
 </head>
-<body>
+{% block content %}
+<body style="background-color: skyblue; font-size: 20px; text-align: center">
         <h1>Contacts</h1>
         <section id="contact">
             <div class="title-text">
-            <p>CONTACTS</p>
             </div>
             <div class="contact-row">
             <div class="contact-left">
-                <h1>Open Hours</h1>
+                <h3>Open Hours</h3>
                 <p><i class="fa fa-clock-o"></i>Monday to Sunday - 7:00AM to 9:00PM</p>
             </div>
             <div class="contact-right">
-                <h1>Contact Us</h1>
+                <h3>Contact Us</h3>
                 <p>LoanApp@loanwebsite.com<i class="fa fa-paper-plane"></i></p>
                 <p>(043) 412-0304<i class="fa fa-phone"></i></p>
             </div>
@@ -38,3 +38,4 @@
         <a href="{% url 'mainpage' %}"target="_top">Back</a>
 </body>
 </html>
+{% endblock %}

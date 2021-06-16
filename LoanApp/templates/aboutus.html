@@ -7,18 +7,19 @@
         <meta name="viewport" content="width =device-width, initial-scale=1">
         <link href="https://font.googleapis.com/css?family=kaushan+Script|Poppins&display=swap" rel="stylesheet">
 </head>
-<body>
+{% block content %}
+<body style="background-color: skyblue; font-size: 20px; text-align: center">
         <h1>About Us</h1>
         <section id="about-us">
+            <h3>About Us</h3>
             <div class="title-text">
-            <p>ABOUT US</p>
             </div>
             <div class="about-us-box">
                 <div class="about-us-desc">
                     <div class="about-us-icon"></div>
                     <div class="about-us-text">
                         <p> <b>CASHYLOAN</b> is a Online Loan Application Website.
-                         <br> This website helps people to apply for loan.<br> This application will ask for the loan amount needed and may request that the borrower specify a term.<br> The lender will charge different rates of interest depending on where borrower live as well as their financial and employment status.<br> In this website you will find our online lending app that allows you to apply for loans provided by Lenderly electronically, with national wide coverage</p>
+                         <br> This website helps people to apply for loan.This application will ask for the loan amount <br> needed and may request that the borrower specify a term. The lender will charge different rates <br> of interest depending on where borrowerlive as well as their financial and employment status.In this website<br>  you will find our online loan application that allows you to apply for loans provided by Lenderly electronically, with national wide coverage</p>
 
                     </div>
                 </div>
@@ -26,7 +27,7 @@
             </section>
         <section id="vision">
             <div class="title-text">
-            <p>VISION</p>
+            <h3>Vision</h3>
             </div>
             <div class="vision-box">
                 <div class="vision-desc">
@@ -39,7 +40,7 @@
             </section>
         <section id="mission">
             <div class="title-text">
-            <p>MISSION</p>
+            <h3>Mission</h3>
             </div>
             <div class="mission-box">
                 <div class="mission-desc">
@@ -54,7 +55,7 @@
 </body>
 </html>
 
-{%block content %} {% endblock %}
+{% endblock %}
 
           
           
