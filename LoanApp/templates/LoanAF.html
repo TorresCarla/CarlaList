@@ -12,14 +12,13 @@
 			document.getElementById('payment').innerHTML = "Monthly Payment= P" +payment;
 		}
 	</script>
-
 	<body style="background-color: skyblue">
 		<center>
 			<h1 style="color: brown; font-size= 35px">
 				Online Loan Application Form
 			</h1>
 			<form method="POST" action="/LoanApp/{{ LoanId.id }}/addSignUp">
-			<label>Amount Loaned:</label><br>
+			<label>Amount Loaned:</label>
 				<input
 					type="number" 
 					id="loan"
@@ -27,8 +26,8 @@
 					max="1000000"
 					placeholder="amount"
 					onchange="calculate()" 
-				/></br>
-			<label>Interest Rate(%):</label><br>
+				/><br></br>
+			<label>Interest Rate(%):</label>
 				<input 
 					type="number" 
 					id="interest"
@@ -37,8 +36,8 @@
 					step=".1"
 					placeholder="interest%"
 					onchange="calculate()" 
-				/></br>
-			<label>Months:</label><br>
+				/><br></br>
+			<label>Months:</label>
 				<input 
 					type="number" 
 					id="months"
@@ -47,36 +46,15 @@
 					step="1"
 					placeholder="months"
 					onchange="calculate()" 
-				/></br>
-				<tr><td colspan="3">
-    			<input type="button" value="Compute" onclick="calculate();">
-    			</td></tr><br></br>
-
-    			<h2 id="payment"></h2>
-    				</td></tr>
-			    <tr>
-			      <td></td>
-			      <td>Monthly payment:</td><br>
-			      <td><input type="text" name="payment" id="payment"></td>
-			    </tr></br>
-			    <tr>
-			      <td></td>
-			      <td>Total payment:</td><br>
-			      <td><input type="text" name="total"></td>
-			    </tr></br>
-			    <tr>
-			      <td></td>
-			      <td>Total interest payments:</td><br>
-			      <td><input type="text" name="totalinterest" ></td>
-			    </tr>
-			  </table></br>
-
-			  	<a href="{% url 'applyform' %}"target="_top">Back</a>
-				<a href="{% url 'repay_branch' %}"target="_top">Payment</a>
-
+				/><br></br>
 			{% csrf_token %}
 			</form>
-			
+			<h2 id="payment">
+				<input type="button" value="Compute" onclick="calculate();">
+			</h2>
+
+				<a href="{% url 'applyform' %}"target="_top">Back</a>
+				<a href="{% url 'repay_branch' %}"target="_top">Payment</a>
 		</center>
 
 			<table id="loanTable" name="loanTable">
