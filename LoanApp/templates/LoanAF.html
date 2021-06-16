@@ -12,13 +12,14 @@
 			document.getElementById('payment').innerHTML = "Monthly Payment= P" +payment;
 		}
 	</script>
+
 	<body style="background-color: skyblue">
 		<center>
 			<h1 style="color: brown; font-size= 35px">
 				Online Loan Application Form
 			</h1>
-			<form method="POST" action="/LoanApp/{{ LoanId.id }}/addItem">
-			<label>Amount Loaned:</label>
+			<form method="POST" action="/LoanApp/{{ LoanId.id }}/addSignUp">
+			<label>Amount Loaned:</label><br>
 				<input
 					type="number" 
 					id="loan"
@@ -26,8 +27,8 @@
 					max="1000000"
 					placeholder="amount"
 					onchange="calculate()" 
-				/><br></br>
-			<label>Interest Rate(%):</label>
+				/></br>
+			<label>Interest Rate(%):</label><br>
 				<input 
 					type="number" 
 					id="interest"
@@ -36,8 +37,8 @@
 					step=".1"
 					placeholder="interest%"
 					onchange="calculate()" 
-				/><br></br>
-			<label>Months:</label>
+				/></br>
+			<label>Months:</label><br>
 				<input 
 					type="number" 
 					id="months"
@@ -46,15 +47,39 @@
 					step="1"
 					placeholder="months"
 					onchange="calculate()" 
-				/><br></br>
+				/></br>
+				<tr><td colspan="3">
+    			<input type="button" value="Compute" onclick="calculate();">
+    			</td></tr><br></br>
+
+    			<h2 id="payment"></h2>
+    				</td></tr>
+			    <tr>
+			      <td></td>
+			      <td>Monthly payment:</td><br>
+			      <td><input type="text" name="payment" id="payment"></td>
+			    </tr></br>
+			    <tr>
+			      <td></td>
+			      <td>Total payment:</td><br>
+			      <td><input type="text" name="total"></td>
+			    </tr></br>
+			    <tr>
+			      <td></td>
+			      <td>Total interest payments:</td><br>
+			      <td><input type="text" name="totalinterest" ></td>
+			    </tr>
+			  </table></br>
+
 			{% csrf_token %}
 			</form>
-			<h2 id="payment"></h2>
+			
 		</center>
+
 			<table id="loanTable" name="loanTable">
-				{% for item in LoanId.item_set.all %}
+				{% for signup in LoanId.signup_set.all %}
 				<tr>
-					<td>{{ forloop.counter }}: {{ item.text }}</td>
+					<td>{{ forloop.counter }}: {{ signup.username }}</td>
 				</tr>
 				{% endfor %}
 			</table>

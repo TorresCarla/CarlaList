@@ -4,14 +4,18 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
-	url(r'^$', views.MainPage, name='mainpage'),
-  	url(r'^LoanApp/signup', views.LoanAF, name='signup'),
-    url(r'^LoanApp/LoanAF', views.LoanAF, name='loanaf'),
-    url(r'^LoanApp/aboutus', views.AboutUs, name='aboutus'), 
-    url(r'^LoanApp/contacts', views.Contacts, name='contacts'),
+    url(r'^admin/', admin.site.urls),
+    url(r'^$', views.MainPage, name='mainpage'),
     url(r'^LoanApp/(\d+)/$', views.ViewList, name='viewlist'),
     url(r'^LoanApp/newlist_url$', views.NewList, name='newlist'),
-    url(r'^LoanApp/(\d+)/AddSignUp$', views.AddSignUp, name='addsigup'),
+    url(r'^LoanApp/frontpage', views.FrontPage, name='frontpage'),
+    url(r'^LoanApp/signup', views.SignUp, name='signup'),
+    url(r'^LoanApp/login', views.LogIn, name='login'),
+    url(r'^LoanApp/LoanAF', views.LoanAF, name='loanaf'),
+    url(r'^LoanApp/repay_branchrb', views.Repay_Branch, name='repay_branch'),
+    url(r'^LoanApp/aboutus', views.AboutUs, name='aboutus'), 
+    url(r'^LoanApp/contacts', views.Contacts, name='contacts'),
+
 ]
 
 """CarlaList URL Configuration

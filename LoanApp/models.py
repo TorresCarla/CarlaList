@@ -42,6 +42,8 @@ class Branches(models.Model):
 	LoanId = models.ForeignKey(Loaner, on_delete=models.CASCADE)
 	CompanyBranch = models.TextField(default="")
 	BankBranch = models.TextField(default="")
+	RemitanceCenter = models.TextField(default="")
+	Location = models.TextField(default="")
 
 	def __str__(self):
 		return self.Branches
@@ -49,8 +51,7 @@ class Branches(models.Model):
 class Repayment(models.Model):
 	LoanId = models.ForeignKey(Loaner, on_delete=models.CASCADE)
 	PaymentMethod = models.TextField(default="")
-	GuidelinePayment = models.TextField(default="")
-	PayNow = models.TextField(default="")
+	AccountNumber = models.TextField(default="")
 
 	def __str__(self):
 		return self.Repayment

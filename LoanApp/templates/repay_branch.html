@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Repayment and Branches</title>
+</head>
+	<body style="background-color: skyblue; height: 100vh; text-align: center;">
+		<h1 style="color: black; font-size= 35px; margin-top: 20px; margin-bottom: 20px">
+			Company Branch
+		</h1>
+		<form method="POST" action="/">
+		<h3 style="color:black; font-size=20px; margin-top: 30px; margin-bottom: 10px">Loan Bank/Remittance</h3>
+			<br><label>Bank Name:</label><br>
+			<br><select id="Bank">
+			  <option selected="">BDO Unibank INC</option>
+			  <option>Metropolitan Bank & Tco</option>
+			  <option>Land Bank of the Philippines</option>
+			  <option>Bank of the Philippine Islands(BPI)</option>
+			  <option>Philippine National Bank(PNB)</option>
+			  <option>Security Bank Corp(SBC)</option>
+			  <option>China Banking Corp</option>
+			  <option>Development Bank of the Philippines(DBP)</option>
+			  <option>Union Bank of the Philippines</option>
+			  <option>Rizal Commercial Banking Corp(RCBC)</option></br>
+			</select></br>
+			<br><label>Remittance Center:</label><br>
+			<br><select id="Remittance">
+			  <option>Palawan Express</option>
+			  <option>Bayad Center</option>
+			  <option>M Lhuillier Kwarta Padala</option>
+			  <option>Western Union</option>
+			  <option>Cebuana Lhuillier Pera Padala</option>
+			  <option>Smart Padala</option>
+			  <option>Xpress Money</option>
+			  <option>TrueMoney Money Padala</option>
+			  <option>TransferWise</option>
+			  <option>ExpressPay</option>
+			  <option>LBC Instant Peso Padala</option>
+			  <option selected>GCash Remit</option></br>
+			</select></br>
+
+			<br><label>Location:</label><br>
+			<br><input 
+				type="text" 
+				id="Location" 
+				name="Location" 
+				size="25"
+				placeholder="Location of Bank or Remittance" /></br>
+
+			<br><h3 style="color:black; font-size=20px; margin-top: 30px; margin-bottom: 30px">Loan Repayment</h3>
+			<label style="color:black; font-size=20px; margin-bottom: 20px">Payment Method:</label><br>
+			<br><select id="Payment Method">
+			  <option>Credit/Debit Card</option>
+			  <option>Remittance Center</option>
+			  <option>Over the counter</option><br></select></br>
+			
+			<br><input type="text" id="Account Number" placeholder="Account Number"></br>
+			
+			<br><input 
+				type="button"
+				id="paynow" 
+				name="paynow"
+				style="color: black; background-color: wheat"
+				value="Pay NOW"
+			/>
+			<a href="LoanAF.html" target="_top">Back</a>
+		</form>
+	</body>
+</html>

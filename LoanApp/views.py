@@ -5,22 +5,6 @@ from django.contrib.auth.decorators import login_required,user_passes_test
 from django.conf import settings
 from django.contrib.auth.models import User
 
-def MainPage(request):
-	if request.user.is_authenticated:
-		return HttpResponseRedirect('afterlogin')
-		return render(request,'mainpage.html')
-
-def SignUp(request):
-		return render(request,'signup.html')
-
-def LoanAF(request):
-	return render(request, 'LoanAF.html')
-
-def AboutUs(request):
-	return render(request, 'aboutus.html')
-
-def Contacts(request):
-	return render(request, 'contacts.html')
 
 def ViewList(request, LoanId):
 	lId = Loaner.objects.get(id=LoanId)
@@ -31,10 +15,33 @@ def NewList(request):
 	SignUp.objects.create(LoanId=newLoaner, username=request.POST['FullName'])
 	return redirect(f'/LoanApp/{newLoaner.id}/')
 
-def AddSignUp(request,lId):
-	lId = Loaner.objects.get(id=lId)
-	SignUp.objects.create(LoanId=lId,username=request.POST['FullName'])
-	return redirect(f'/LoanApp/{lId.id}/')
+def FrontPage(request):
+	return render(request,'frontpage.html')
+
+def MainPage(request):
+	return render(request,'mainpage.html')
+
+def SignUp(request):
+	return render(request,'signup.html')
+
+def LogIn(request):
+	return render(request,'login.html')
+
+def LoanAF(request):
+	return render(request, 'LoanAF.html')
+
+def Repay_Branch(request):
+	return render(request, 'repay_branch.html')
+
+def AboutUs(request):
+	return render(request, 'aboutus.html')
+
+def Contacts(request):
+	return render(request, 'contacts.html')
+
+
+
+
 	
 
 
