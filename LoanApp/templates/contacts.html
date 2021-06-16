@@ -2,7 +2,7 @@
 <head>
 {% load static %}
     <title>Contacts</title>
-    <link rel="stylesheet" href="{% static 'navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'mainpage.css' %}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <meta name="viewport" content="width =device-width, initial-scale=1">
     <link href="https://font.googleapis.com/css?family=kaushan+Script|Poppins&display=swap" rel="stylesheet">
@@ -34,5 +34,7 @@
             </div>
     
         </section>
+
+        <a href="{% url 'mainpage' %}"target="_top">Back</a>
 </body>
 </html>

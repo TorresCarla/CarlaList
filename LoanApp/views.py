@@ -1,22 +1,20 @@
 from django.http import HttpResponseRedirect
-from LoanApp.models import SignUp, Loaner
-from django.shortcuts import render,redirect,reverse
-from django.contrib.auth.decorators import login_required,user_passes_test
-from django.conf import settings
-from django.contrib.auth.models import User
+from LoanApp.models import Loaner, SignUp, AmountLoan, Branches, Repayment
+from django.shortcuts import render,redirect
 
+
+
+def Main(request):
+	return render(request, 'mainpage.html')
 
 def ViewList(request, LoanId):
 	lId = Loaner.objects.get(id=LoanId)
-	return render(request, 'LoanAF.html', {'LoanId': lId})
+	return render(request, 'mainpage.html', {'LoanId': lId})
 
 def NewList(request):
 	newLoaner = Loaner.objects.create()
-	SignUp.objects.create(LoanId=newLoaner, username=request.POST['FullName'])
+	SignUp.objects.create(username=request.POST['FullName'])
 	return redirect(f'/LoanApp/{newLoaner.id}/')
-
-def FrontPage(request):
-	return render(request,'frontpage.html')
 
 def MainPage(request):
 	return render(request,'mainpage.html')
@@ -26,6 +24,9 @@ def SignUp(request):
 
 def LogIn(request):
 	return render(request,'login.html')
+
+def ApplyForm(request):
+	return render(request,'applyform.html')
 
 def LoanAF(request):
 	return render(request, 'LoanAF.html')

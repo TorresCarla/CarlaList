@@ -13,9 +13,11 @@
 <div id="sideNav">
     <nav>
     <ul>
-        <a href="{% url 'frontpage' %}"><li><i class="fa fa-home"></i>Home</li></a>
+        <a href="{% url 'mainpage' %}"><li><i class="fa fa-home"></i>Home</li></a>
         <a href="{% url 'aboutus' %}"><li><i class="fa fa-info"></i>About Us</li></a>
-        <a href="{% url 'mainpage' %}"><li><i class="fa fa-file"></i>Apply Loan</li></a>
+        <a href="{% url 'signup' %}"><li><i class="fa fa-info"></i>Sign Up</li></a>
+        <a href="{% url 'login' %}"><li><i class="fa fa-info"></i>Log In</li></a>
+        <a href="{% url 'applyform' %}"><li><i class="fa fa-file"></i>Apply Loan</li></a>
         <a href="{% url 'loanaf' %}"><li><i class="fa fa-money"></i>Amount Loan</li></a>
         <a href="{% url 'repay_branch' %}"><li><i class="fa fa-bank"></i>Repay and Branch</li></a>
         <a href="{% url 'contacts' %}"><li><i class="fa fa-phone"></i>Contact</li></a>

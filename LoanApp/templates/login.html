@@ -8,7 +8,7 @@
             Loan Log In
         </h1>
         <h2>Welcome Back LOANER!</h2>
-        <form class="form-control" action="/LoanApp/login/" method="post">
+        <form class="form-control" action="/" method="post">
  
             <label>Username:<span class="req"></label><br>
             <input 
@@ -34,6 +34,8 @@
                 style="color: black; background-color: wheat; margin-top: 10px; margin-bottom: 10px"
                 value="Log In">-->
 
+            <a href="{% url 'applyform' %}"target="_top">Log In</a>
+
         <br><small class="row">
                 <a href="#" class="col text-left">Forgot password?</a>
                 <a href="signup.html" class="col text-right">Create New Account</a>
@@ -41,7 +43,6 @@
         </form></br>
     </div>
         
-{% endblock %}
 
 {% block scriptcontent %}
     <script>

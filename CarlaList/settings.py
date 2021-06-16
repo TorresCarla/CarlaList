@@ -26,7 +26,7 @@ SECRET_KEY = '%(sb#!#c13l_#8gime1#h3=i96q_2iia%*nx7z7t1go!862386'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['utang.ph']
+ALLOWED_HOSTS = ['localhost']
 
 
 # Application definition
