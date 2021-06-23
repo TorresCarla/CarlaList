@@ -11,9 +11,12 @@ urlpatterns = [
     url(r'^LoanApp/frontpage', views.MainPage, name='mainpage'),
     url(r'^LoanApp/signup', views.SignUp, name='signup'),
     url(r'^LoanApp/login', views.LogIn, name='login'),
+    url(r'^LoanApp/forgotpassword', views.ForgotPassword, name='forgotpassword'),
+    url(r'^LoanApp/reset', views.Reset, name='reset'),
     url(r'^LoanApp/applyform', views.ApplyForm, name='applyform'),
     url(r'^LoanApp/LoanAF', views.LoanAF, name='loanaf'),
     url(r'^LoanApp/repay_branch', views.Repay_Branch, name='repay_branch'),
+    url(r'^LoanApp/payment', views.Payment, name='payment'), 
     url(r'^LoanApp/aboutus', views.AboutUs, name='aboutus'), 
     url(r'^LoanApp/contacts', views.Contacts, name='contacts'),
 

@@ -1,29 +1,114 @@
-{% extends 'navbar.html' %}
-
+{% block content %}
 <html>
 <head>
-{% load static %}
-
         <title>Online Loan</title>
-        <link rel="stylesheet" href="{% static 'mainpage.css' %}">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <meta name="viewport" content="width =device-width, initial-scale=1">
         <link rel="stylesheet" href="https://font.googleapis.com/css?family=kaushan+Script|Poppins&display=swap">
+        <style>
+            a:link, a:visited {
+              background-color: royalblue;
+              padding: 10px 20px;
+              text-align: center;
+              text-decoration: none;
+              display: inline-block;
+              font-weight:500; 
+              margin-top:35px; 
+              color: white;
+              text-transform:uppercase; 
+              font-size:14px;
+              padding:10px 24px;
+              display:inline-block;
+              border-radius:50px;"
+            }
+    
+            a:hover, a:active {
+              background-color: royalblue;
+            }
+        </style>
+
+        <style>
+            a:link, a:visited {
+                background-color: royalblue;
+                padding: 10px 20px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-weight:500; 
+                margin-top:35px; 
+                color:white;
+                text-transform:uppercase; 
+                font-size:14px;
+                padding:10px 24px;
+                display:inline-block;
+                border-radius:50px;"
+            }
+    
+            a:hover, a:active {
+                background-color: royalblue;
+            }
+        </style>
+
 </head>
-{% block content %}
+
 <body style="background-color: skyblue; font-size: 30px; text-align: center">
+    <div class="menu-bar">
+<div id="menuNav">
+    <nav> 
+       <style>
+            ul {
+                list-style-type: none;
+                margin: 20px;
+                padding: 30px;
+                overflow: hidden;
+                }
+                
+                li {
+                  float: left;
+                }
+
+                li a {
+                display: block;
+                margin: 30px;
+                padding: 30px;
+                font-size: 20px;
+                }
+        </style>
+    <ul>
+        <li><a href="mainpage.html"><i class="fa fa-home"></i> Home</a></li>
+        <li><a href="aboutus.html"><i class="fa fa-info"></i> About Us</a></li>
+        <li><a href="applyform.html"><i class="fa fa-file"></i> Apply Loan</a></li>
+        <li><a href="LoanAF.html"><i class="fa fa-money"></i> Amount Loan</a></li>
+        <li><a href="repay_branch.html"><i class="fa fa-bank"></i> Repay and Branch</li></a></li>
+        <li><a href="contacts.html"><i class="fa fa-phone"></i> Contact</a></li>
+    </ul>
+    </nav>
+    
+</div>
+</div>
+
 <section id="background">
-<!--	<img src="bg1.jpg" class="background">
-    <img src="logo.png" class="logo">-->
+<!--    <img src="bg1.jpg" class="background">-->
+    <img src="logo.png" class="logo">
+    <style>
+        .logo {
+          width: 200px;
+          height: 200px;
+          position: absolute;
+          top: 30%; 
+          left: 4%
+        }
+    </style>
+
     <div class="background-text">
         <h1>CASHYLOAN</h1>
         <p>Trusted partner for your financial problem.</p>
-        <h4>Borrow, pay, repeat</h4>
+        <h4>Borrow, Pay, Repeat!</h4>
     </div>
 </section>
     
-			  	<a href="{% url 'signup' %}"target="_top">SignUp</a>
-				<a href="{% url 'login' %}"target="_top">LogIn</a>
+			  	<a href="signup.html"target="_top">SignUp</a>
+				<a href="login.html"target="_top">LogIn</a>
 </body>
 </html>
 {% endblock %}

@@ -2,16 +2,38 @@
 <html>
 <head>
 	<title>Repayment and Branches</title>
+	<style>
+        a:link, a:visited {
+          background-color: royalblue;
+          padding: 10px 20px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-weight:500; 
+          margin-top:35px; 
+          color:white;
+          text-transform:uppercase; 
+          font-size:14px;
+          padding:10px 24px;
+          display:inline-block;
+          border-radius:50px;"
+        }
+        
+        a:hover, a:active {
+          background-color: royalblue;
+        }
+    </style>
 </head>
 	<body style="background-color: skyblue; height: 100vh; text-align: center;">
 		<h1 style="color: black; font-size:35px; margin-top: 20px; margin-bottom: 20px">
-			Company Branch
+			Payment Method
 		</h1>
 		<form method="POST" action="/">
 		<h4 style="color:black; font-size: 20px; margin-top: 10px; margin-bottom: 10px">Loan Bank/Remittance</h4>
 			<br><label>Bank Name:</label><br>
-			<br><select id="Bank">
+			<br><select id="Bank" required>
 			  <option selected="">BDO Unibank INC</option>
+			  <option>----------</option>
 			  <option>Metropolitan Bank & Tco</option>
 			  <option>Land Bank of the Philippines</option>
 			  <option>Bank of the Philippine Islands(BPI)</option>
@@ -23,7 +45,8 @@
 			  <option>Rizal Commercial Banking Corp(RCBC)</option></br>
 			</select></br>
 			<br><label>Remittance Center:</label><br>
-			<br><select id="Remittance">
+			<br><select id="Remittance" required>
+			  <option>----------</option>
 			  <option>Palawan Express</option>
 			  <option>Bayad Center</option>
 			  <option>M Lhuillier Kwarta Padala</option>
@@ -44,25 +67,27 @@
 				id="Location" 
 				name="Location" 
 				size="25"
-				placeholder="Location of Bank or Remittance" /></br>
+				placeholder="Location of Bank or Remittance" 
+				required/></br>
 
 			<br><h4 style="color:black; font-size:20px; margin-top: 10px; margin-bottom: 10px">Loan Repayment</h4>
 			<label style="color:black; font-size:15px; margin-bottom: 10px">Payment Method:</label><br>
-			<br><select id="Payment Method">
+			<br><select id="Payment Method" required>
 			  <option>Credit/Debit Card</option>
 			  <option>Remittance Center</option>
 			  <option>Over the counter</option><br></select></br>
 			
 			<br><input type="text" id="Account Number" placeholder="Account Number"></br>
 			
-			<br><input 
+			<!--<br><input 
 				type="button"
 				id="paynow" 
 				name="paynow"
 				style="color: black; background-color: wheat"
 				value="Pay NOW"
-			/>
+			/>-->
 			<a href="LoanAF.html" target="_top">Back</a>
+			<a href="payment.html" traget="_top">PayNow</a>
 		</form>
 	</body>
 </html>

@@ -25,6 +25,12 @@ def SignUp(request):
 def LogIn(request):
 	return render(request,'login.html')
 
+def ForgotPassword(request):
+	return render(request,'forgotpassword.html')
+
+def Reset(request):
+	return render(request,'reset.html')
+
 def ApplyForm(request):
 	return render(request,'applyform.html')
 
@@ -33,6 +39,9 @@ def LoanAF(request):
 
 def Repay_Branch(request):
 	return render(request, 'repay_branch.html')
+
+def Payment(request):
+	return render(request, 'payment.html')
 
 def AboutUs(request):
 	return render(request, 'aboutus.html')

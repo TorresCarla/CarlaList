@@ -1,6 +1,28 @@
 <!DOCTYPE HTML>
 <html>
 	<title>Loan Application</title>
+	<style>
+    	a:link, a:visited {
+    	  background-color: royalblue;
+    	  padding: 10px 20px;
+    	  text-align: center;
+    	  text-decoration: none;
+    	  display: inline-block;
+    	  font-weight:500; 
+    	  margin-top:35px; 
+    	  color:white;
+    	  text-transform:uppercase; 
+    	  font-size:14px;
+    	  padding:10px 24px;
+    	  display:inline-block;
+    	  border-radius:50px;"
+    	}
+    
+    	a:hover, a:active {
+    	  background-color: royalblue;
+    	}
+	</style>
+
 	<script></script>
 	<body style="background-color: skyblue; height: 100vh;">
 		<h1 style="color: black; font-size= 35px">
@@ -14,7 +36,8 @@
 				id="FullName" 
 				name="FullName"
 				size="25"
-				placeholder="Your Full Name" 
+				placeholder="Your Full Name"
+				required 
 			/>
 			<label>Email Address:</label>
 			<input 
@@ -22,6 +45,7 @@
 				id="EmailAddress" 
 				name="EmailAddress" 
  				placeholder="Your Email Address" 
+ 				required
 			/><br></br>
 			<label>Residence Address:</label>
 			<input 
@@ -29,15 +53,17 @@
 				id="ResidenceAddress" 
 				name="ResidenceAddress" 
 				size="25"
-				placeholder="Your Residence Address" 
+				placeholder="Your Residence Address"
+				required 
 			/>
 			<label>Zip Code:</label>
 			<input 
-				type="text" 
+				type="number" 
 				id="ZipCode" 
 				name="ZipCode" 
 				size="25"
-				placeholder="Your ZipCode" 
+				placeholder="Your ZipCode"
+				required 
 			/><br></br>
 			<label>Date of Birth:</label>
 			<input 
@@ -46,6 +72,7 @@
 				name="DateOfBirth" 
 				size="25"
 				placeholder="M/D/Y" 
+				required
 			/>
 			<label>Marital Status:</label>
 			<input 
@@ -54,6 +81,7 @@
 				name="Status" 
 				size="25"
 				placeholder="MaritalStatus"
+				required
 			/><br></br>
 			<label>Citizenship:</label>
 			<input 
@@ -62,14 +90,16 @@
 				name="Citizenship" 
 				size="25"
 				placeholder="Citizenship"
+				required
 			/>
 			<label>Cellphone No.</label>
 			<input 
-				type="text" 
+				type="number" 
 				id="CellNo" 
 				name="CellNo" 
 				size="25"
 				placeholder="Cellphone Number"
+				required
 			/><br></br>		
 			<h3 style="color:black; font-size=20px">Identity Information</h3>
 			<label>Types of Valid ID:</label>
@@ -79,14 +109,16 @@
 				name="ValidID" 
 				size="25"
 				placeholder="Your ValidID"
+				required
 			/>
 			<label>Valid ID No.</label>
 			<input 
-				type="text" 
+				type="number" 
 				id="ValidIDNo" 
 				name="ValidIDNo" 
 				size="25"
 				placeholder="Your ValidID Number"
+				required
 			/>
 		<h3 style="color:black; font-size=20px">Employment Information</h3>
 			<label>Source of Income:</label>
@@ -96,6 +128,7 @@
 				name="Income" 
 				size="25"
 				placeholder="Source of Income"
+				required
 			/>
 			<label>Employment Status:</label>
 			<input 
@@ -104,6 +137,7 @@
 				name="Employment" 
 				size="25"
 				placeholder="Your Employment"
+				required
 			/>
 			<!--<input 
 				type="submit"
@@ -113,8 +147,8 @@
 				value="Sign Up"
 			/>-->
 
-				<a href="{% url 'login' %}"target="_top">Back</a>
-			    <a href="{% url 'loanaf' %}"target="_top">Loan Amount</a>
+				<a href="login.html"target="_top">Back</a>
+			    <a href="LoanAF.html"target="_top">Loan Amount</a>
 
 			{% csrf_token %}
 		</form>

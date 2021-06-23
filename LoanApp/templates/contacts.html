@@ -2,10 +2,30 @@
 <head>
 {% load static %}
     <title>Contacts</title>
-    <link rel="stylesheet" href="{% static 'mainpage.css' %}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <meta name="viewport" content="width =device-width, initial-scale=1">
     <link href="https://font.googleapis.com/css?family=kaushan+Script|Poppins&display=swap" rel="stylesheet">
+    <style>
+        a:link, a:visited {
+          background-color: royalblue;
+          padding: 10px 20px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-weight:500; 
+          margin-top:35px; 
+          color:white;
+          text-transform:uppercase; 
+          font-size:14px;
+          padding:10px 24px;
+          display:inline-block;
+          border-radius:50px;"
+        }
+        
+        a:hover, a:active {
+          background-color: royalblue;
+        }
+    </style>
 </head>
 {% block content %}
 <body style="background-color: skyblue; font-size: 20px; text-align: center">
@@ -16,12 +36,12 @@
             <div class="contact-row">
             <div class="contact-left">
                 <h3>Open Hours</h3>
-                <p><i class="fa fa-clock-o"></i>Monday to Sunday - 7:00AM to 9:00PM</p>
+                <p><i class="fa fa-clock-o"></i>   Monday to Sunday - 7:00AM to 9:00PM</p>
             </div>
             <div class="contact-right">
                 <h3>Contact Us</h3>
-                <p>LoanApp@loanwebsite.com<i class="fa fa-paper-plane"></i></p>
-                <p>(043) 412-0304<i class="fa fa-phone"></i></p>
+                <p>cashyloan@loanwebsite.com  <i class="fa fa-paper-plane"></i></p>
+                <p>(043) 412-0304   <i class="fa fa-phone"></i></p>
             </div>
             </div>
 
@@ -30,12 +50,31 @@
                 <i class="fa fa-instagram"></i>
                 <i class="fa fa-twitter"></i>
                 <i class="fa fa-youtube-play"></i>
-                <p>Copyright © 2021 Loan Application. All rights reserved.</p>
+                <p>Copyright © 2021 CASHYLOAN. All rights reserved.</p>
             </div>
+            <style>
+                .social-links .fa{
+                height: 40px;
+                width: 40px;
+                font-size: 20px;
+                line-height: 40px;
+                border: 1px solid royalblue;
+                margin: 40px 5px 0;
+                color: black;
+                cursor: pointer;
+                border-radius: 10px;
+                transition: .5s;
+            }
+            .social-links .fa:hover{
+                background: royalblue;
+                color: white;
+                transform: translateY(-7px);
+            }
+            </style>
     
         </section>
 
-        <a href="{% url 'mainpage' %}"target="_top">Back</a>
+        <a href="mainpage.html"target="_top">Back</a>
 </body>
 </html>
 {% endblock %}

@@ -1,13 +1,31 @@
 <html>
 <head>
-{% load static %}
         <title>About Us</title>
-        <link rel="stylesheet" href="{% static 'mainpage.css' %}">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <meta name="viewport" content="width =device-width, initial-scale=1">
         <link href="https://font.googleapis.com/css?family=kaushan+Script|Poppins&display=swap" rel="stylesheet">
+        <style>
+            a:link, a:visited {
+              background-color: royalblue;
+              padding: 10px 20px;
+              text-align: center;
+              text-decoration: none;
+              display: inline-block;
+              font-weight:500; 
+              margin-top:35px; 
+              color: white;
+              text-transform:uppercase; 
+              font-size:14px;
+              padding:10px 24px;
+              display:inline-block;
+              border-radius:50px;"
+            }
+    
+            a:hover, a:active {
+              background-color: royalblue;
+            }
+        </style>
 </head>
-{% block content %}
 <body style="background-color: skyblue; font-size: 20px; text-align: center">
         <h1>About Us</h1>
         <section id="about-us">
@@ -19,7 +37,7 @@
                     <div class="about-us-icon"></div>
                     <div class="about-us-text">
                         <p> <b>CASHYLOAN</b> is a Online Loan Application Website.
-                         <br> This website helps people to apply for loan.This application will ask for the loan amount <br> needed and may request that the borrower specify a term. The lender will charge different rates <br> of interest depending on where borrowerlive as well as their financial and employment status.In this website<br>  you will find our online loan application that allows you to apply for loans provided by Lenderly electronically, with national wide coverage</p>
+                         <br> This website helps people to apply for loan.This application will ask for the loan amount <br> needed and may request that the borrower specify a term. The lender will charge different rates <br> of interest depending on where borrowerlive as well as their financial and employment status.In this website<br>  you will find online loan that allows you to apply for loans provided by CASHYLOAN, with national wide coverage</p>
 
                     </div>
                 </div>
@@ -51,7 +69,7 @@
                 </div>
             </div>
             </section>
-            <a href="{% url 'mainpage' %}"target="_top">Back</a>
+            <a href="mainpage.html"target="_top">Back</a>
 </body>
 </html>
 

@@ -9,9 +9,31 @@
 			var interest = (loan * (interest * .01)) /months;
 			var payment = ((loan / months) + interest).toFixed(2);
 			payment = payment.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-			document.getElementById('payment').innerHTML = "Monthly Payment= P" +payment;
+			document.getElementById('payment').innerHTML = "Monthly Payment= ₱" +payment;
 		}
 	</script>
+	<style>
+    	a:link, a:visited {
+    	  background-color: royalblue;
+    	  padding: 10px 20px;
+    	  text-align: center;
+    	  text-decoration: none;
+    	  display: inline-block;
+    	  font-weight:500; 
+    	  margin-top:35px; 
+    	  color:white;
+    	  text-transform:uppercase; 
+    	  font-size:14px;
+    	  padding:10px 24px;
+    	  display:inline-block;
+    	  border-radius:50px;"
+    	}
+    	
+    	a:hover, a:active {
+    	  background-color: royalblue;
+    	}
+	</style>
+
 	<body style="background-color: skyblue">
 		<center>
 			<h1 style="color: brown; font-size= 35px">
@@ -25,6 +47,7 @@
 					min="1"
 					max="1000000"
 					placeholder="amount"
+					required
 					onchange="calculate()" 
 				/><br></br>
 			<label>Interest Rate(%):</label>
@@ -35,6 +58,7 @@
 					max="100"
 					step=".1"
 					placeholder="interest%"
+					required
 					onchange="calculate()" 
 				/><br></br>
 			<label>Months:</label>
@@ -45,16 +69,16 @@
 					max="72"
 					step="1"
 					placeholder="months"
+					required
 					onchange="calculate()" 
 				/><br></br>
+				<input type="button" value="Compute" onclick="calculate();">
 			{% csrf_token %}
 			</form>
 			<h2 id="payment">
-				<input type="button" value="Compute" onclick="calculate();">
 			</h2>
-
-				<a href="{% url 'applyform' %}"target="_top">Back</a>
-				<a href="{% url 'repay_branch' %}"target="_top">Payment</a>
+				<a href="applyform.html"target="_top">Back</a>
+				<a href="repay_branch.html"target="_top">Payment</a>
 		</center>
 
 			<table id="loanTable" name="loanTable">
