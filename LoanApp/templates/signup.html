@@ -32,7 +32,7 @@
         <form action="/" method="post">
             <label>Username:<span class="req"></label><br>
             <input 
-                maxlength="10" 
+                maxlength="20" 
                 type="text" 
                 id="Uname" 
                 name="Uname"
@@ -53,8 +53,8 @@
                 type="button"
                 style="color: black; background-color: wheat; margin-top: 10px; margin-bottom: 10px"
                 value="Register">-->
-                <a href="mainpage.html"target="_top">Back</a>
-                <a href="login.html"target="_top">Register</a>
+                <a href="{% url 'mainpage' %}" target="_top">Back</a>
+                <a href="{% url 'login' %}" target="_top">Register</a>
 
 </body>
 </html>

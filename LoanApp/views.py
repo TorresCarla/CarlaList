@@ -34,8 +34,8 @@ def Reset(request):
 def ApplyForm(request):
 	return render(request,'applyform.html')
 
-def LoanAF(request):
-	return render(request, 'LoanAF.html')
+def Amount(request):
+	return render(request, 'amount.html')
 
 def Repay_Branch(request):
 	return render(request, 'repay_branch.html')

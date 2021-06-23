@@ -1,4 +1,5 @@
 {% block content %}
+
 <html>
 <head>
         <title>Online Loan</title>
@@ -24,28 +25,6 @@
     
             a:hover, a:active {
               background-color: royalblue;
-            }
-        </style>
-
-        <style>
-            a:link, a:visited {
-                background-color: royalblue;
-                padding: 10px 20px;
-                text-align: center;
-                text-decoration: none;
-                display: inline-block;
-                font-weight:500; 
-                margin-top:35px; 
-                color:white;
-                text-transform:uppercase; 
-                font-size:14px;
-                padding:10px 24px;
-                display:inline-block;
-                border-radius:50px;"
-            }
-    
-            a:hover, a:active {
-                background-color: royalblue;
             }
         </style>
 
@@ -75,7 +54,7 @@
                 }
         </style>
     <ul>
-        <li><a href="mainpage.html"><i class="fa fa-home"></i> Home</a></li>
+        <li><a href="{% url 'mainpage' %}"><i class="fa fa-home"></i> Home</a></li>
         <li><a href="aboutus.html"><i class="fa fa-info"></i> About Us</a></li>
         <li><a href="applyform.html"><i class="fa fa-file"></i> Apply Loan</a></li>
         <li><a href="LoanAF.html"><i class="fa fa-money"></i> Amount Loan</a></li>
@@ -88,17 +67,6 @@
 </div>
 
 <section id="background">
-<!--    <img src="bg1.jpg" class="background">-->
-    <img src="logo.png" class="logo">
-    <style>
-        .logo {
-          width: 200px;
-          height: 200px;
-          position: absolute;
-          top: 30%; 
-          left: 4%
-        }
-    </style>
 
     <div class="background-text">
         <h1>CASHYLOAN</h1>
@@ -107,8 +75,8 @@
     </div>
 </section>
     
-			  	<a href="signup.html"target="_top">SignUp</a>
-				<a href="login.html"target="_top">LogIn</a>
+			  	<a href="{% url 'signup' %}" target="_top">SignUp</a>
+				<a href="{% url 'login' %}" target="_top">LogIn</a>
 </body>
 </html>
 {% endblock %}

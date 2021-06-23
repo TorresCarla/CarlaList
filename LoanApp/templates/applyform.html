@@ -147,8 +147,8 @@
 				value="Sign Up"
 			/>-->
 
-				<a href="login.html"target="_top">Back</a>
-			    <a href="LoanAF.html"target="_top">Loan Amount</a>
+				<a href="{% url 'login' %}" target="_top">Back</a>
+			    <a href="{% url 'amount' %}" target="_top">Loan Amount</a>
 
 			{% csrf_token %}
 		</form>
