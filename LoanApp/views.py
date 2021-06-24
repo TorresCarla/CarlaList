@@ -20,28 +20,75 @@ def MainPage(request):
 	return render(request,'mainpage.html')
 
 def SignUp(request):
+	LoanId = SignUp.objects.create(
+	username = request.POST['username'],
+	password = request.POST['password'],
+	)
+	return redirect(request,'ApplyForm')
 	return render(request,'signup.html')
 
-def LogIn(request):
-	return render(request,'login.html')
-
-def ForgotPassword(request):
-	return render(request,'forgotpassword.html')
-
-def Reset(request):
-	return render(request,'reset.html')
-
 def ApplyForm(request):
+	LoanId = Loaner.objects.create(
+	FullName = request.POST['FullName'],
+	EmailAddress = request.POST['EmailAddress'],
+	CellNo = request.POST['CellNo'],
+	Friend = request.POST['Friend'],
+	FriendCellNo = request.POST['FriendCellNo'],
+	ValidID = request.POST['ValidID'],
+	ValidIDNo =request.POST['ValidIDNo'],
+	Income = request.POST['Income'],
+	Employment = request.POST['Employment'],
+	)
+	return redirect(request,'Receipt')
 	return render(request,'applyform.html')
 
 def Amount(request):
+	LoanId = AmountLoan.objects.create(
+	AmountLoan = request.POST['loan'],
+	Interest = request.POST['interest'],
+	Months = request.POST['months'],
+)
+	return redirect(request,'Receipt')
 	return render(request, 'amount.html')
 
 def Repay_Branch(request):
+	LoanId = Branches.objects.create(
+	BankBranch = request.POST['Bank'],
+	RemitanceCenter = request.POST['Remitance'],
+	Location = request.POST['Location'],
+	)
+	LoanId = Repayment.objects.create(
+	PaymentMethod = request.POST['PaymentMethod'],
+	AccountNumber = request.POST['AccountNumber'],
+	)
+	return redirect(request,'Receipt')
 	return render(request, 'repay_branch.html')
 
-def Payment(request):
-	return render(request, 'payment.html')
+def Receipt(request):
+	FullName = Loaner.objects.filter()
+	EmailAddress = Loaner.objects.filter()
+	CellNo = Loaner.objects.filter()
+	AmountLoan = AmountLoan.objects.filter()
+	Interest = AmountLoan.objects.filter()
+	Months = AmountLoan.objects.filter()
+	BankBranch = Branches.objects.filter()
+	RemitanceCenter = Branches.objects.filter()
+	Location = Branches.objects.filter()
+	PaymentMethod = Repayment.objects.filter()
+	AccountNumber = Repayment.objects.filter()
+	context = {'FullName':FullName , 
+		'EmailAddress':EmailAddress , 
+		'CellNo':CellNo , 
+		'loan':loan , 
+		'interest':interest , 
+		'months':months , 
+		'payment':payment ,
+		'Bank':Bank , 
+		'Remitance':Remitance,
+		'Location':Location ,
+		'PaymentMethod':PaymentMethod ,
+		'AccountNumber':AccountNumber  }
+	return render(request, 'receipt.html', context)
 
 def AboutUs(request):
 	return render(request, 'aboutus.html')

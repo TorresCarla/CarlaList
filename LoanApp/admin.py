@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Loaner, SignUp, AmountLoan, Branches, Repayment
+from LoanApp.models import Loaner, SignUp, AmountLoan, Branches, Repayment
 
 admin.site.register(Loaner)
 admin.site.register(SignUp)

@@ -20,16 +20,16 @@
         }
         
         a:hover, a:active {
-          background-color: royalblue;
+          background-color: blue;
         }
     </style>
 </head>
 	<body style="background-color: skyblue; height: 100vh; text-align: center;">
-		<h1 style="color: black; font-size:35px; margin-top: 20px; margin-bottom: 20px">
+		<h1 style="color: darkred; font-size:35px; margin-top: 20px; margin-bottom: 20px">
 			Payment Method
 		</h1>
 		<form method="POST" action="/">
-		<h4 style="color:black; font-size: 20px; margin-top: 10px; margin-bottom: 10px">Loan Bank/Remittance</h4>
+		<h4 style="color:darkred; font-size: 20px; margin-top: 10px; margin-bottom: 10px">Loan Bank/Remittance</h4>
 			<br><label>Bank Name:</label><br>
 			<br><select id="Bank" required>
 			  <option selected="">BDO Unibank INC</option>
@@ -70,24 +70,20 @@
 				placeholder="Location of Bank or Remittance" 
 				required/></br>
 
-			<br><h4 style="color:black; font-size:20px; margin-top: 10px; margin-bottom: 10px">Loan Repayment</h4>
+			<br><h4 style="color:darkred; font-size:20px; margin-top: 10px; margin-bottom: 10px">Loan Repayment</h4>
 			<label style="color:black; font-size:15px; margin-bottom: 10px">Payment Method:</label><br>
-			<br><select id="Payment Method" required>
+			<br><select id="PaymentMethod" required>
 			  <option>Credit/Debit Card</option>
 			  <option>Remittance Center</option>
 			  <option>Over the counter</option><br></select></br>
 			
-			<br><input type="text" id="Account Number" placeholder="Account Number"></br>
+			<br><input type="text" id="AccountNumber" placeholder="Account Number"></br>
 			
-			<!--<br><input 
-				type="button"
-				id="paynow" 
-				name="paynow"
-				style="color: black; background-color: wheat"
-				value="Pay NOW"
-			/>-->
+
+
+		
 			<a href="{% url 'amount' %}"  target="_top">Back</a>
-			<a href="{% url 'payment' %}" traget="_top">PayNow</a>
+			<a href="{% url 'payment' %}"  target="_top">PayNOW!</a>
 		</form>
 	</body>
 </html>

@@ -30,14 +30,14 @@
     	}
     	
     	a:hover, a:active {
-    	  background-color: royalblue;
+    	  background-color: blue;
     	}
 	</style>
 
 	<body style="background-color: skyblue">
 		<center>
-			<h1 style="color: brown; font-size= 35px">
-				Online Loan Application Form
+			<h1 style="color: darkred; font-size= 35px">
+				Loan Amount
 			</h1>
 			<form method="POST" action="/LoanApp/{{ LoanId.id }}/addSignUp">
 			<label>Amount Loaned:</label>
@@ -84,7 +84,7 @@
 			<table id="loanTable" name="loanTable">
 				{% for signup in LoanId.signup_set.all %}
 				<tr>
-					<td>{{ forloop.counter }}: {{ signup.username }}</td>
+					<td>{{ forloop.counter }}: {{  }}</td>
 				</tr>
 				{% endfor %}
 			</table>

@@ -1,3 +1,4 @@
+{% block content %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,16 +21,16 @@
         }
         
         a:hover, a:active {
-          background-color: royalblue;
+          background-color: blue;
         }
     </style>
 
 </head>
 <body style="background-color: skyblue; text-align: center">
-        <h1 style="color: darkblue; font-size= 35px; margin-top: 30px; margin-bottom: 30px">
+        <h1 style="color: darkred; font-size: 35px; margin-top: 30px; margin-bottom: 30px">
             Loan Sign Up
         </h1>
-        <form action="/" method="post">
+        <form action="" method="POST">
             <label>Username:<span class="req"></label><br>
             <input 
                 maxlength="20" 
@@ -55,9 +56,9 @@
                 value="Register">-->
                 <a href="{% url 'mainpage' %}" target="_top">Back</a>
                 <a href="{% url 'login' %}" target="_top">Register</a>
-
+    {% csrf_token %}
 </body>
 </html>
 
-          
+ {% endblock %}         
           

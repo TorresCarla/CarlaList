@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html>
+	<title>Receipt</title>
+	<script ></script>
+	<style></style>
+
+	<body style="background-color: skyblue">
+		<center>
+			<h1 style="color: darkred; font-size= 35px">
+				Thank you for Trusting!
+			</h1>
+			<form method="POST" action="/LoanApp/{{ LoanId.id }}/addSignUp">
+			
+			{% csrf_token %}
+			</form>
+		</center>
+				context = {'LoanId':LoanId , }
+			<table id="loanTable" name="loanTable">
+				{% for signup in LoanId.signup_set.all %}
+				<tr>
+					<td>{{ forloop.counter }}: {{  }}</td>
+				</tr>
+				{% endfor %}
+			</table>
+		<!-- <table id="LoanTable">
+			<tr><td>1: {{ NewFullName }}</td>
+				<td>in</td>
+				<td>{{ NewEmailAddress }}</td></tr>
+		</table> -->
+	</body>
+</html>
