@@ -34,6 +34,7 @@ class AmountLoan(models.Model):
 	MonthlyPayment = models.CharField(default="", max_length=100000)
 	TotalPayment = models.CharField(default="", max_length=1000000)
 	TotalInterest = models.CharField(default="", max_length=1000000)
+	
 	def __str__(self):
 		return self.AmountLoan
 

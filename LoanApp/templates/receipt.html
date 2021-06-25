@@ -68,12 +68,17 @@ tr:nth-child(even) {
 					<th>Interest</th>
 					<th>Years</th>
 					<th>Payment</th>
+					<th>MonthlyPayment<th>
+					<th>TotalPayment<th>
+					<th>TotalInterest<th>
 				</tr>
 				<tr>
-					<td>{{ aloan.Amount }}</td>
+					<td>{{ aloan.AmountLoan }}</td>
 					<td>{{ aloan.Interest }}</td>
 					<td>{{ aloan.Months }}</td>
-					<td>{{ aloan.Payment }}</td>
+					<td>{{ aloan.MonthlyPayment }}</td>
+					<td>{{ aloan.TotalPayment }}</td>
+					<td>{{ aloan.TotalInterest }}</td>
 				</tr>
 	</table>
 
