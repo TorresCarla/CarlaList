@@ -1,3 +1,4 @@
+{% block content %}
 <!DOCTYPE HTML>
 <html>
 	<title>Receipt</title>
@@ -5,27 +6,125 @@
 	<style></style>
 
 	<body style="background-color: skyblue">
-		<center>
-			<h1 style="color: darkred; font-size= 35px">
-				Thank you for Trusting!
-			</h1>
-			<form method="POST" action="/LoanApp/{{ LoanId.id }}/addSignUp">
-			
-			{% csrf_token %}
-			</form>
-		</center>
-				context = {'LoanId':LoanId , }
-			<table id="loanTable" name="loanTable">
-				{% for signup in LoanId.signup_set.all %}
+<center>
+	<h1 style="color: darkred; font-size= 35px">
+		Thank you for Trusting!
+	</h1>
+
+<style>
+table {
+  font-family: sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid black;
+  text-align: center;
+  padding: 20px;
+}
+
+tr:nth-child(even) {
+  background-color: skyblue;
+}
+</style>
+	<h3 style="color: brown; font-size: 20px"><b>Loaner Information</b></h3>
+	<table style="width: 50%">
 				<tr>
-					<td>{{ forloop.counter }}: {{  }}</td>
+					<th>FullName</th>
+					<th>EmailAddress</th>
+					<th>ResidenceAddress</th>
+					<th>ZipCode</th>
+					<th>DateOfBirth</th>
+					<th>Status</th>
+					<th>Citizenship</th>
+					<th>CellNo</th>
+					<th>ValidID</th>
+					<th>ValidIDNo</th>
+					<th>Income</th>
+					<th>Employment</th>
 				</tr>
-				{% endfor %}
-			</table>
-		<!-- <table id="LoanTable">
-			<tr><td>1: {{ NewFullName }}</td>
-				<td>in</td>
-				<td>{{ NewEmailAddress }}</td></tr>
-		</table> -->
+				<tr>
+					<td>{{ lender.FullName }}</td>
+					<td>{{ lender.EmailAddress }}</td>
+					<td>{{ lender.ResidenceAddress }}</td>
+					<td>{{ lender.ZipCode }}</td>
+					<td>{{ lender.DateOfBirth }}</td>
+					<td>{{ lender.Status }}</td>
+					<td>{{ lender.Citizenship }}</td>
+					<td>{{ lender.CellNo }}</td>
+					<td>{{ lender.ValidID }}</td>
+					<td>{{ lender.ValidIDNo }}</td>
+					<td>{{ lender.Income }}</td>
+					<td>{{ lender.Employment }}</td>
+				</tr>
+
+	</table>
+
+	<br><h3 style="color: brown; font-size: 20px"><b>Borrower Loan</b></h3>
+	<table style="width: 50%">
+				<tr>	
+					<th>AmountLoan</th>
+					<th>Interest</th>
+					<th>Years</th>
+					<th>Payment</th>
+				</tr>
+				<tr>
+					<td>{{ aloan.Amount }}</td>
+					<td>{{ aloan.Interest }}</td>
+					<td>{{ aloan.Months }}</td>
+					<td>{{ aloan.Payment }}</td>
+				</tr>
+	</table>
+
+	<br><h3 style="color: brown; font-size: 20px"><b>Claiming Loan</b></h3>
+	<table style="width: 50%">
+				<tr>
+					<th>BankBranch</th>
+					<th>RemitanceCenter</th>
+					<th>Location</th>
+				</tr>
+				<tr>
+					<td>{{ bank.BankBranch }}</td>
+					<td>{{ bank.RemitanceCenter }}</td>
+					<td>{{ bank.Location }}</td>
+				</tr>
+	</table>
+
+	<br><h3 style="color: brown; font-size: 20px"><b>Paying Loan</b></h3>
+	<table style="width: 50%">
+				<tr>
+					<th>PaymentMethod</th>
+					<th>AccountNumber</th>
+				</tr>
+				<tr>
+					<td>{{ pay.PaymentMethod }}</td>
+					<td>{{ pay.AccountNumber }}</td>
+				</tr>
+	</table>
+
 	</body>
+	<style>
+    	a:link, a:visited {
+    	  background-color: royalblue;
+    	  padding: 10px 20px;
+    	  text-align: center;
+    	  text-decoration: none;
+    	  display: inline-block;
+    	  font-weight:500; 
+    	  margin-top:35px; 
+    	  color:white;
+    	  text-transform:uppercase; 
+    	  font-size:20px;
+    	  padding:10px 20px;
+    	  display:inline-block;
+    	  border-radius:50px;"
+    	}
+    	
+    	a:hover, a:active {
+    	  background-color: blue;
+    	}
+	</style>
+	<a href="{% url 'details' %}" target="_top">CRUD HERE</a>
 </html>
+{% endblock %}

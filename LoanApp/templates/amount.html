@@ -1,101 +1,92 @@
-<!DOCTYPE HTML>
+{% block content %}
+<!DOCTYPE html>
 <html>
-	<title>Amount Loan</title>
-	<script type="text/javascript">
-		function calculate(){
-			var loan = document.getElementById('loan').value;
-			var interest = document.getElementById('interest').value;
-			var months = document.getElementById('months').value;
-			var interest = (loan * (interest * .01)) /months;
-			var payment = ((loan / months) + interest).toFixed(2);
-			payment = payment.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-			document.getElementById('payment').innerHTML = "Monthly Payment= ₱" +payment;
-		}
-	</script>
-	<style>
-    	a:link, a:visited {
-    	  background-color: royalblue;
-    	  padding: 10px 20px;
-    	  text-align: center;
-    	  text-decoration: none;
-    	  display: inline-block;
-    	  font-weight:500; 
-    	  margin-top:35px; 
-    	  color:white;
-    	  text-transform:uppercase; 
-    	  font-size:14px;
-    	  padding:10px 24px;
-    	  display:inline-block;
-    	  border-radius:50px;"
-    	}
-    	
-    	a:hover, a:active {
-    	  background-color: blue;
-    	}
-	</style>
+<head>
+  <title>Amount Loan</title></head>
+<body style="background-color: skyblue; height: 100vh;">
 
-	<body style="background-color: skyblue">
-		<center>
-			<h1 style="color: darkred; font-size= 35px">
-				Loan Amount
-			</h1>
-			<form method="POST" action="/LoanApp/{{ LoanId.id }}/addSignUp">
-			<label>Amount Loaned:</label>
-				<input
-					type="number" 
-					id="loan"
-					min="1"
-					max="1000000"
-					placeholder="amount"
-					required
-					onchange="calculate()" 
-				/><br></br>
-			<label>Interest Rate(%):</label>
-				<input 
-					type="number" 
-					id="interest"
-					min="0"
-					max="100"
-					step=".1"
-					placeholder="interest%"
-					required
-					onchange="calculate()" 
-				/><br></br>
-			<label>Months:</label>
-				<input 
-					type="number" 
-					id="months"
-					min="1"
-					max="72"
-					step="1"
-					placeholder="months"
-					required
-					onchange="calculate()" 
-				/><br></br>
-				<input type="button" value="Compute" onclick="calculate();">
-			{% csrf_token %}
-			</form>
-			<h2 id="payment">
-			</h2>
-				<a href="{% url 'applyform' %}" target="_top">Back</a>
-				<a href="{% url 'repay_branch' %}" target="_top">Payment</a>
-		</center>
+<form name="loandata" form method="POST" action="borrow">
+		{% csrf_token %}
+  <table align="center">
+<form name="loandata">
+    <tr><td colspan="3"><b style="color: darkred; font-size:20px">Enter Loan Information:</b></td></tr>
+    <tr>
+      <td></td>
+      <td>Amount of the loan (any currency):</td>
+      <td><input type="text" name="loan" size="12" 
+                 onchange="calculate();"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>Interest rate:</td>
+      <td><input type="text" name="interest" size="12" 
+                 onchange="calculate();"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>Years to pay</td>
+      <td><input type="text" name="years" size="12" 
+                 onchange="calculate();"></td>
+    </tr>
+    <tr><td colspan="3">
+      <input type="button" value="Compute" onclick="calculate();">
+      <input type="submit" value="Confirm">
+    </td></tr>
+    <tr><td colspan="3">
+      <b style="color: darkred; font-size:20px">Payment Information:</b>
+    </td></tr>
+    <tr>
+      <td></td>
+      <td>Your monthly payment will be:</td>
+      <td><input type="text" name="payment" size="12"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>Your total payment will be:</td>
+      <td><input type="text" name="total" size="12"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>Your total interest payments will be:</td>
+      <td><input type="text" name="totalinterest" size="12"></td>
+    </tr>
+  </table>
+  
+</form>
 
-			<table id="loanTable" name="loanTable">
-				{% for signup in LoanId.signup_set.all %}
-				<tr>
-					<td>{{ forloop.counter }}: {{  }}</td>
-				</tr>
-				{% endfor %}
-			</table>
-		<!-- <table id="LoanTable">
-			<tr><td>1: {{ NewFullName }}</td>
-				<td>in</td>
-				<td>{{ NewEmailAddress }}</td></tr>
-		</table> -->
-	</body>
+<script language="JavaScript">
+function calculate() {
+  
+    var loan = document.loandata.loan.value;
+    var interest = document.loandata.interest.value / 100 / 12;
+    var payments = document.loandata.years.value * 12;
+
+    var x = Math.pow(1 + interest, payments);
+    var monthly = (loan*x*interest)/(x-1);
+
+    if (!isNaN(monthly) && 
+        (monthly != Number.POSITIVE_INFINITY) &&
+        (monthly != Number.NEGATIVE_INFINITY)) {
+
+        document.loandata.payment.value = round(monthly);
+        document.loandata.total.value = round(monthly * payments);
+        document.loandata.totalinterest.value = 
+            round((monthly * payments) - loan);
+    }
+    else {
+        document.loandata.payment.value = "";
+        document.loandata.total.value = "";
+        document.loandata.totalinterest.value = "";
+    }
+}
+
+function round(x) {
+  return Math.round(x*100)/100;
+}
+</script>
+</body>
 </html>
-
+{% endblock %}
 
 <!--<input type="submit" id="btnConfirm" value="Confirm"/><br></br>-->
 <!-- <input type="submit" id="btnMore" value="More"/><br></br> -->

@@ -1,5 +1,5 @@
 from django.test import TestCase
-from LoanApp.models import Item, Loaner
+#from LoanApp.models import Item, Loaner
 	
 class LoanMainTest(TestCase):
 	def test_mainpage_returns_correct_view(self):

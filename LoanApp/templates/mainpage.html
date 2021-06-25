@@ -55,11 +55,11 @@
         </style>
     <ul>
         <li><a href="{% url 'mainpage' %}"><i class="fa fa-home"></i> Home</li></a>
-        <li><a href="aboutus.html"><i class="fa fa-info"></i> About Us</li></a>
-<!--	    <li><a href="applyform.html"><i class="fa fa-file"></i> Application Form</a></li>
+        <li><a href="{% url 'aboutus' %}"><i class="fa fa-info"></i> About Us</li></a>
+<!--      <li><a href="applyform.html"><i class="fa fa-file"></i> Application Form</a></li>
         <li><a href="amount.html"><i class="fa fa-money"></i> Amount Loan</a></li>
         <li><a href="repay_branch.html"><i class="fa fa-bank"></i> Repay and Branch</li></a></li>-->
-        <li><a href="contacts.html"><i class="fa fa-phone"></i> Contact</li></a>
+        <li><a href="{% url 'contacts' %}"><i class="fa fa-phone"></i> Contact</li></a>
     </ul>
     </nav>
     
@@ -75,7 +75,7 @@
     </div>
 </section>
     
-				<a href="{% url 'signup' %}" target="_top">Apply Loan</a>
+        <a href="{% url 'signup' %}" target="_top">Apply Loan</a>
+{% endblock %}
 </body>
 </html>
-{% endblock %}

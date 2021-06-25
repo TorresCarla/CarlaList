@@ -1,3 +1,4 @@
+{% block content %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,12 +27,13 @@
 </head>
 	<body style="background-color: skyblue; height: 100vh; text-align: center;">
 		<h1 style="color: darkred; font-size:35px; margin-top: 20px; margin-bottom: 20px">
-			Payment Method
+			Loaner Mode of Payment
 		</h1>
-		<form method="POST" action="/">
+		<form method="POST" action="payment_location">
+				{% csrf_token %}
 		<h4 style="color:darkred; font-size: 20px; margin-top: 10px; margin-bottom: 10px">Loan Bank/Remittance</h4>
 			<br><label>Bank Name:</label><br>
-			<br><select id="Bank" required>
+			<br><select id="Bank"  name="Bank" required>
 			  <option selected="">BDO Unibank INC</option>
 			  <option>----------</option>
 			  <option>Metropolitan Bank & Tco</option>
@@ -45,7 +47,7 @@
 			  <option>Rizal Commercial Banking Corp(RCBC)</option></br>
 			</select></br>
 			<br><label>Remittance Center:</label><br>
-			<br><select id="Remittance" required>
+			<br><select id="Remitance" name="Remitance" required>
 			  <option>----------</option>
 			  <option>Palawan Express</option>
 			  <option>Bayad Center</option>
@@ -72,18 +74,30 @@
 
 			<br><h4 style="color:darkred; font-size:20px; margin-top: 10px; margin-bottom: 10px">Loan Repayment</h4>
 			<label style="color:black; font-size:15px; margin-bottom: 10px">Payment Method:</label><br>
-			<br><select id="PaymentMethod" required>
+			<br><select id="PaymentMethod" name="PaymentMethod"required>
 			  <option>Credit/Debit Card</option>
 			  <option>Remittance Center</option>
 			  <option>Over the counter</option><br></select></br>
 			
-			<br><input type="text" id="AccountNumber" placeholder="Account Number"></br>
+			<br><input type="text" id="AccountNumber" name="AccountNumber"placeholder="Account Number"></br>
+
 			
-
-
-		
-			<a href="{% url 'amount' %}"  target="_top">Back</a>
-			<a href="{% url 'payment' %}"  target="_top">PayNOW!</a>
+			<input 
+				type="submit"
+				id="btnConfirm" 
+				name="btnConfirm"
+				style="color: black; background-color: wheat; margin-top: 10px;padding: 10px"
+				value="Confirm"
+			/>
 		</form>
+{% endblock %}
 	</body>
 </html>
+
+<!--		<input 
+				type="submit"
+				id="btnConfirm" 
+				name="btnConfirm"
+				style="color: black; background-color: wheat"
+				value="Confirm"
+			/>-->

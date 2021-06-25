@@ -1,3 +1,4 @@
+{% block content %}
 <!DOCTYPE HTML>
 <html>
 	<title>Loan Application</title>
@@ -9,7 +10,7 @@
     	  text-decoration: none;
     	  display: inline-block;
     	  font-weight:500; 
-    	  margin-top:35px; 
+    	  margin-top:1px; 
     	  color:white;
     	  text-transform:uppercase; 
     	  font-size:14px;
@@ -28,7 +29,8 @@
 		<h1 style="color: darkred; font-size= 35px">
 			Loan Application Form
 		</h1>
-		<form method="POST" action="/LoanApp/newlist_url">
+		<form method="POST" action="inquire">
+			{% csrf_token %}
 		<h3 style="color:black; font-size:20px">Personal Information</h3>
 			<label>Full Name:</label>
 			<input
@@ -66,12 +68,12 @@
 				required 
 			/><br></br>
 			<label>Date of Birth:</label>
-			<input 
+			<input
 				type="text" 
 				id="DateOfBirth" 
 				name="DateOfBirth" 
 				size="25"
-				placeholder="M/D/Y" 
+				placeholder="MM/DD/YYYY" 
 				required
 			/>
 			<label>Marital Status:</label>
@@ -101,7 +103,7 @@
 				placeholder="Cellphone Number"
 				required
 			/><br></br>		
-			<h3 style="color:black; font-size=20px">Identity Information</h3>
+			<h3 style="color:black; font-size: 20px">Identity Information</h3>
 			<label>Types of Valid ID:</label>
 			<input 
 				type="text" 
@@ -120,7 +122,7 @@
 				placeholder="Your ValidID Number"
 				required
 			/>
-		<h3 style="color:black; font-size=20px">Employment Information</h3>
+		<h3 style="color:black; font-size: 20px">Employment Information</h3>
 			<label>Source of Income:</label>
 			<input 
 				type="text" 
@@ -139,32 +141,36 @@
 				placeholder="Your Employment"
 				required
 			/>
-			<!--<input 
+		
+				<input type="submit" id="btnConfirm" value="Confirm"/>
+			
+		</form>
+
+			<!-- <a href="{% url 'signup' %}" target="_top">Back</a>
+				<a href="{% url 'amount' %}" target="_top">Loan Amount</a
+
+<input 
 				type="submit"
 				id="btnConfirm" 
 				name="btnConfirm"
 				style="color: black; background-color: wheat"
-				value="Sign Up"
-			/>-->
+				value="Confirm"
+			/> -->
 
-				<a href="{% url 'login' %}" target="_top">Back</a>
-			    <a href="{% url 'amount' %}" target="_top">Loan Amount</a>
 
-			{% csrf_token %}
-		</form>
-
-		<table id="loanTable" name="loanTable">
-			{% for item in newPerson %}
+	<!--	<table id="loanTable" name="loanTable">
+			{% for SignUp in LoanId %}
 			<tr>
-				<td>{{ forloop.counter }}: {{ item.text }}</td>
+				<td>{{ forloop.counter }}: {{ SignUp.LoanId }}</td>
 			</tr>
 			{% endfor %}
-		</table>
+		</table>-->
 		<!-- <table id="LoanTable">
 			<tr><td>1: {{ NewFullName }}</td>
 				<td>in</td>
 				<td>{{ NewEmailAddress }}</td></tr>
 		</table> -->
+{% endblock %}
 	</body>
 </html>
 

@@ -1,94 +1,86 @@
-from django.http import HttpResponseRedirect
 from LoanApp.models import Loaner, SignUp, AmountLoan, Branches, Repayment
-from django.shortcuts import render,redirect
+from django.shortcuts import render, redirect
+
 
 
 
 def Main(request):
 	return render(request, 'mainpage.html')
 
-def ViewList(request, LoanId):
-	lId = Loaner.objects.get(id=LoanId)
-	return render(request, 'mainpage.html', {'LoanId': lId})
-
-def NewList(request):
-	newLoaner = Loaner.objects.create()
-	SignUp.objects.create(username=request.POST['FullName'])
-	return redirect(f'/LoanApp/{newLoaner.id}/')
-
 def MainPage(request):
 	return render(request,'mainpage.html')
 
-def SignUp(request):
-	LoanId = SignUp.objects.create(
-	username = request.POST['username'],
-	password = request.POST['password'],
-	)
-	return redirect(request,'ApplyForm')
+def Register(request):
 	return render(request,'signup.html')
 
-def ApplyForm(request):
-	LoanId = Loaner.objects.create(
-	FullName = request.POST['FullName'],
-	EmailAddress = request.POST['EmailAddress'],
-	CellNo = request.POST['CellNo'],
-	Friend = request.POST['Friend'],
-	FriendCellNo = request.POST['FriendCellNo'],
-	ValidID = request.POST['ValidID'],
-	ValidIDNo =request.POST['ValidIDNo'],
-	Income = request.POST['Income'],
-	Employment = request.POST['Employment'],
-	)
-	return redirect(request,'Receipt')
-	return render(request,'applyform.html')
+def Inquire(request):
+	lender = Loaner.objects.create(
+		FullName = request.POST['FullName'],
+		EmailAddress = request.POST['EmailAddress'],
+		ResidenceAddress = request.POST['ResidenceAddress'],
+		ZipCode = request.POST['ZipCode'],
+		DateOfBirth = request.POST['DateOfBirth'],
+		Status = request.POST['Status'],
+		Citizenship = request.POST['Citizenship'],
+		CellNo = request.POST['CellNo'],
+		ValidID = request.POST['ValidID'],
+		ValidIDNo =request.POST['ValidIDNo'],
+		Income = request.POST['Income'],
+		Employment = request.POST['Employment'],
+		)
 
-def Amount(request):
-	LoanId = AmountLoan.objects.create(
-	AmountLoan = request.POST['loan'],
-	Interest = request.POST['interest'],
-	Months = request.POST['months'],
-)
-	return redirect(request,'Receipt')
+	return redirect('amount')
+	return render(request, 'applyform.html')
+
+def ApplyForm(request):
+	return render(request, 'applyform.html')
+
+def Borrow(request):
+	aloan = AmountLoan.objects.create(
+		AmountLoan = request.POST['loan'],
+		Interest = request.POST['interest'],
+		Months = request.POST['years'],
+		MonthlyPayment = request.POST['payment'],
+		TotalPayment = request.POST['total'],
+		TotalInterest = request.POST['totalinterest'],
+		)
+	return redirect('repay_branch')
 	return render(request, 'amount.html')
 
+def Amount(request):
+	return render(request, 'amount.html')
+
+def Payment_Location(request):
+	bank = Branches.objects.create(
+		BankBranch = request.POST['Bank'],
+		RemitanceCenter = request.POST['Remitance'],
+		Location = request.POST['Location'],
+
+		)
+
+	pay = Repayment.objects.create(
+		PaymentMethod = request.POST['PaymentMethod'],
+		AccountNumber = request.POST['AccountNumber'],
+
+		)
+
+	return redirect('receipt')
+	return render(request, 'repay_branch.html')
+
 def Repay_Branch(request):
-	LoanId = Branches.objects.create(
-	BankBranch = request.POST['Bank'],
-	RemitanceCenter = request.POST['Remitance'],
-	Location = request.POST['Location'],
-	)
-	LoanId = Repayment.objects.create(
-	PaymentMethod = request.POST['PaymentMethod'],
-	AccountNumber = request.POST['AccountNumber'],
-	)
-	return redirect(request,'Receipt')
 	return render(request, 'repay_branch.html')
 
 def Receipt(request):
-	FullName = Loaner.objects.filter()
-	EmailAddress = Loaner.objects.filter()
-	CellNo = Loaner.objects.filter()
-	AmountLoan = AmountLoan.objects.filter()
-	Interest = AmountLoan.objects.filter()
-	Months = AmountLoan.objects.filter()
-	BankBranch = Branches.objects.filter()
-	RemitanceCenter = Branches.objects.filter()
-	Location = Branches.objects.filter()
-	PaymentMethod = Repayment.objects.filter()
-	AccountNumber = Repayment.objects.filter()
-	context = {'FullName':FullName , 
-		'EmailAddress':EmailAddress , 
-		'CellNo':CellNo , 
-		'loan':loan , 
-		'interest':interest , 
-		'months':months , 
-		'payment':payment ,
-		'Bank':Bank , 
-		'Remitance':Remitance,
-		'Location':Location ,
-		'PaymentMethod':PaymentMethod ,
-		'AccountNumber':AccountNumber  }
+	lender = Loaner.objects.last
+	aloan = AmountLoan.objects.last
+	bank = Branches.objects.last
+	pay = Repayment.objects.last
+
+	context = {'lender':lender, 'aloan':aloan, 'bank':bank, 'pay':pay}
 	return render(request, 'receipt.html', context)
+
+def Details(request):
+	return render(request, 'details.html')
 
 def AboutUs(request):
 	return render(request, 'aboutus.html')
@@ -128,7 +120,6 @@ def Contacts(request):
 # Create your views here.
 #def MainPage(request):
 #	return render(request,'mainpage.html',{'NewFullName':request.POST.get('FullName'),'NewEmailAddress':request.POST.get('EmailAddress',''),})
-
 #if request.method == 'POST':
 #return HttpResponse(request.POST['FullName'])
 #return render(request,"mainpage.html")
